@@ -1,4 +1,6 @@
-export const PYRAMID_EXCHANGE = [
+import type { ExchangeItemType } from 'src/types';
+
+export const PYRAMID_EXCHANGE: ExchangeItemType[] = [
   {
     id: 'my_strength_is_quiet_but_unwavering',
     description: `My strength is quiet but unwavering.`,
@@ -51,7 +53,7 @@ export const PYRAMID_EXCHANGE = [
   },
 ];
 
-export const FLOWER_EXCHANGE = [
+export const FLOWER_EXCHANGE: ExchangeItemType[] = [
   {
     id: 'my_beauty_is_natural_and_easy',
     description: `My beauty is natural and easy.`,
@@ -104,7 +106,7 @@ export const FLOWER_EXCHANGE = [
   },
 ];
 
-export const BUG_EXCHANGE = [
+export const BUG_EXCHANGE: ExchangeItemType[] = [
   {
     id: 'silence_speaks_louder_than_words',
     description: `Silence speaks louder than words.`,
@@ -157,10 +159,8 @@ export const BUG_EXCHANGE = [
   },
 ];
 
-export const CROWN_EXCHANGE = [
-  {
-    id: 'crown_description',
-    description: `A crown does not create beauty - it only highlights what is already inside. \n The Queen once said that every woman has her own story of light, but she does not see it every day. That is why she created this crown as a sign: stop, look at yourself more closely. In the shine of gold you see not luxury, but a reflection of your own strength, softness and path. \n The crown opens the story of beauty - a place where your steps, photos, thoughts and small victories are added up into its own legend. Beauty does not disappear, it is just waiting for you to look at it directly.`,
-    completed: false,
-  },
-];
+export const CROWN_EXCHANGE: ExchangeItemType = {
+  id: 'crown_description',
+  description: `A crown does not create beauty - it only highlights what is already inside. \n The Queen once said that every woman has her own story of light, but she does not see it every day. That is why she created this crown as a sign: stop, look at yourself more closely. In the shine of gold you see not luxury, but a reflection of your own strength, softness and path. \n The crown opens the story of beauty - a place where your steps, photos, thoughts and small victories are added up into its own legend. Beauty does not disappear, it is just waiting for you to look at it directly.`,
+  completed: false,
+};

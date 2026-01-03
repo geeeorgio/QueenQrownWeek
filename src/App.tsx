@@ -1,10 +1,20 @@
-import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { GameBackground, GameContextProvider } from './components';
+import RootNavigator from './navigation/RootNavigator';
 
 const App = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Hello Queen Qrown Week</Text>
-    </View>
+    <GameContextProvider>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <GameBackground>
+            <RootNavigator />
+          </GameBackground>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </GameContextProvider>
   );
 };
 

@@ -15,4 +15,6 @@ export const COLORS = {
   greyBorder: 'rgba(128, 128, 128, 0.55)',
   greyBackground: 'rgba(179, 179, 179, 0.82)',
   darkGrey: '#383838',
+
+  placeholderTextColor: 'rgba(255, 255, 255, 0.5)',
 };

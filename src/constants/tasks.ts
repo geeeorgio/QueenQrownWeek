@@ -1,6 +1,6 @@
-import type { Task } from '../types';
+import type { TaskType } from '../types';
 
-export const TASKS: Task[] = [
+export const TASKS: TaskType[] = [
   {
     id: 'take_photo_of_something_that_brings_you_peace_today',
     description: 'Take a photo of something that brings you peace today.',

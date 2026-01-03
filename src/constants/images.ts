@@ -1,3 +1,5 @@
+import type { ArtefactType } from 'src/types';
+
 export const MAIN_BG_IMAGE = require('../assets/images/bckgd/bg.png');
 
 export const BTN_FRAME = require('../assets/images/bckgd/btn_frame.png');
@@ -15,3 +17,10 @@ export const ITEMS = {
 };
 
 export const LOGO = require('../assets/images/bckgd/logo.png');
+
+export const ARTEFACTS: ArtefactType[] = [
+  { id: 'Pyramid', image: ITEMS.pyramid },
+  { id: 'Flower', image: ITEMS.flower },
+  { id: 'Bug', image: ITEMS.bug },
+  { id: 'Crown', image: ITEMS.crown },
+];
