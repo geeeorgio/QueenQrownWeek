@@ -13,3 +13,5 @@ export const ITEMS = {
   pyramid: require('../assets/images/items/pyramid.png'),
   taskCard: require('../assets/images/items/task_card.png'),
 };
+
+export const LOGO = require('../assets/images/bckgd/logo.png');
