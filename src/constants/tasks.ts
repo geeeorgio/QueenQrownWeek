@@ -1,0 +1,143 @@
+export const TASKS = [
+  {
+    id: 'take_photo_of_something_that_brings_you_peace_today',
+    description: 'Take a photo of something that brings you peace today.',
+    completed: true,
+  },
+  {
+    id: 'show_a_detail_that_caught_your_eye',
+    description: 'Show a detail that caught your eye.',
+    completed: false,
+  },
+  {
+    id: 'find_an_interesting_shadow_and_take_a_photo_of_it',
+    description: 'Find an interesting shadow and take a photo of it.',
+    completed: false,
+  },
+  {
+    id: 'take_photo_of_a_texture_that_you_like',
+    description: 'Take a photo of a texture that you like.',
+    completed: false,
+  },
+  {
+    id: 'show_an_object_that_gives_you_warmth',
+    description: 'Show an object that gives you warmth.',
+    completed: false,
+  },
+  {
+    id: 'find_a_color_that_lifts_your_mood',
+    description: 'Find a color that lifts your mood.',
+    completed: false,
+  },
+  {
+    id: 'take_photo_of_a_moment_when_you_stopped',
+    description: 'Take a photo of a moment when you stopped.',
+    completed: false,
+  },
+  {
+    id: 'show_something_with_clear_shapes',
+    description: 'Show something with clear shapes.',
+    completed: false,
+  },
+  {
+    id: 'take_photo_of_a_ray_of_light',
+    description: 'Take a photo of a ray of light.',
+    completed: false,
+  },
+  {
+    id: 'find_an_object_that_symbolizes_balance',
+    description: 'Find an object that symbolizes balance.',
+    completed: false,
+  },
+  {
+    id: 'take_photo_of_something_soft',
+    description: 'Take a photo of something soft.',
+    completed: false,
+  },
+  {
+    id: 'show_something_that_looks_harmonious',
+    description: 'Show something that looks harmonious.',
+    completed: false,
+  },
+  {
+    id: 'find_a_small_detail_that_is_easy_to_miss',
+    description: 'Find a small detail that is easy to miss.',
+    completed: false,
+  },
+  {
+    id: 'take_photo_of_a_moment_where_you_felt_good',
+    description: 'Take a photo of a moment where you felt good.',
+    completed: false,
+  },
+  {
+    id: 'show_a_shape_that_calms_you',
+    description: 'Show a shape that calms you.',
+    completed: false,
+  },
+  {
+    id: 'take_photo_of_something_that_looks_beautiful_today',
+    description: 'Take a photo of something that looks beautiful today.',
+    completed: false,
+  },
+  {
+    id: 'find_an_object_that_is_held_firmly',
+    description: 'Find an object that is held firmly.',
+    completed: false,
+  },
+  {
+    id: 'take_photo_of_something_that_resembles_movement',
+    description: 'Take a photo of something that resembles movement.',
+    completed: false,
+  },
+  {
+    id: 'show_a_peaceful_space',
+    description: 'Show a peaceful space.',
+    completed: false,
+  },
+  {
+    id: 'take_photo_of_something_that_made_your_day_more_enjoyable',
+    description: 'Take a photo of something that made your day more enjoyable.',
+    completed: false,
+  },
+  {
+    id: 'find_light_falling_from_above',
+    description: 'Find light falling from above.',
+    completed: false,
+  },
+  {
+    id: 'take_photo_of_a_detail_that_seems_interesting',
+    description: 'Take a photo of a detail that seems interesting.',
+    completed: false,
+  },
+  {
+    id: 'show_a_moment_of_lightness',
+    description: 'Show a moment of lightness.',
+    completed: false,
+  },
+  {
+    id: 'take_photo_of_something_smooth_and_structured',
+    description: 'Take a photo of something smooth and structured.',
+    completed: false,
+  },
+  {
+    id: 'find_an_object_that_symbolizes_tenderness',
+    description: 'Find an object that symbolizes tenderness.',
+    completed: false,
+  },
+  {
+    id: 'show_a_color_that_you_want_to_hold_in_your_eyes',
+    description: 'Show a color that you want to hold in your eyes.',
+    completed: false,
+  },
+  {
+    id: 'find_a_shape_that_resembles_a_flower',
+    description: 'Find a shape that resembles a flower.',
+    completed: false,
+  },
+  {
+    id: 'take_photo_of_something_that_you_want_to_remember_from_this_day',
+    description:
+      'Take a photo of something that you want to remember from this day.',
+    completed: false,
+  },
+];
