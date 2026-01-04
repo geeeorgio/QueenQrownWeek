@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     right: 0,
     justifyContent: 'space-around',
     alignItems: 'center',
-    paddingTop: hp(40),
+    paddingTop: hp(30),
     paddingBottom: hp(60),
     paddingHorizontal: wp(30),
     gap: wp(16),
