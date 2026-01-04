@@ -25,6 +25,7 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
   const [userData, setUserDataState] = useState<userDataType>({
     name: '',
     note: '',
+    photo: null,
   });
   const [artefacts, setArtefacts] = useState<{
     [key in ArtefactIdType]: number;

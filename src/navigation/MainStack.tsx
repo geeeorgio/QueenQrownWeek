@@ -17,6 +17,9 @@ const MainStack = () => {
       screenOptions={{
         headerShown: false,
         animation: 'shift',
+        sceneStyle: {
+          backgroundColor: 'transparent',
+        },
       }}
       tabBar={(props) => <CustomTabBar {...props} />}
     >

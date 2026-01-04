@@ -9,12 +9,14 @@ import ImgIcon from './ui/CustomIcons/ImgIcon';
 import InfoIcon from './ui/CustomIcons/InfoIcon';
 import ProfileIcon from './ui/CustomIcons/ProfileIcon';
 import CustomInput from './ui/CustomInput/CustomInput';
+import CustomModal from './ui/CustomModal/CustomModal';
 import CustomScreenWrapper from './ui/CustomScreenWrapper/CustomScreenWrapper';
 import CustomTabBar from './ui/CustomTabBar/CustomTabBar';
 import CustomText from './ui/CustomText/CustomText';
 
 export {
   ProfileIcon,
+  CustomModal,
   GameBackground,
   GameContextProvider,
   CustomButton,

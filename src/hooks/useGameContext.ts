@@ -35,6 +35,7 @@ export const GameContext = createContext<GameContextType>({
   userContextData: {
     name: '',
     note: '',
+    photo: null,
   },
   setUserData: async () => {
     console.warn('GameContext not initialized');

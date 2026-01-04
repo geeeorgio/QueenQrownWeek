@@ -49,9 +49,9 @@ const CustomTabBar = (props: BottomTabBarProps) => {
             accessibilityState={{ selected: isFocused }}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={isFocused ? styles.buttonFocused : styles.button}
+            style={[styles.button, isFocused && styles.buttonFocused]}
           >
-            <Icon color={isFocused ? COLORS.yellowMain : COLORS.white} />
+            <Icon color={COLORS.yellowMain} style={styles.icon} />
           </PlatformPressable>
         );
       })}

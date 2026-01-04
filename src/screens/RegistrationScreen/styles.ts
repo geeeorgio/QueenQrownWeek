@@ -7,6 +7,9 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  scrollViewContent: {
+    paddingBottom: hp(40),
+  },
   registrationHeader: {
     width: '100%',
     height: hp(88),
@@ -53,10 +56,31 @@ export const styles = StyleSheet.create({
     height: hp(200),
     justifyContent: 'center',
     gap: wp(12),
+    overflow: 'hidden',
+  },
+  previewImage: {
+    ...StyleSheet.absoluteFillObject,
   },
   addPhotoText: {
     fontFamily: FONTS.InterRegular,
     fontSize: sp(14),
+    textAlign: 'center',
+  },
+  saveButton: {
+    width: '100%',
+    height: hp(80),
+    marginBottom: hp(20),
+  },
+  buttonImage: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: sp(20),
+    fontFamily: FONTS.MontserratBold,
+    color: COLORS.brown,
     textAlign: 'center',
   },
 });

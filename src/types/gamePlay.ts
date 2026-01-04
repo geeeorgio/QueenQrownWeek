@@ -27,6 +27,7 @@ export type ExchangeItemType = {
 export type userDataType = {
   name: string;
   note: string;
+  photo?: string | null;
 };
 
 export type GameContextType = {
