@@ -3,6 +3,7 @@ export const COLORS = {
   black: '#000',
   brown: '#372301',
   yellowMain: '#F9C600',
+  yellowContainer: '#B89E2A',
   yellowBackground: '#FFE73E',
   greenBackground: '#3EFF3E',
   greenCircle: '#005200',

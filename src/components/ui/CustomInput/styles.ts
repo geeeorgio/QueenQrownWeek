@@ -6,6 +6,6 @@ export const styles = StyleSheet.create({
   container: {},
   multiline: {
     textAlignVertical: 'top',
-    minHeight: hp(100),
+    height: hp(88),
   },
 });

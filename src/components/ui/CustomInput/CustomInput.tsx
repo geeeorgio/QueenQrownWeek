@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { StyleProp, TextStyle } from 'react-native';
-import { Keyboard, TextInput } from 'react-native';
+import { TextInput } from 'react-native';
 
 import { styles } from './styles';
 
@@ -23,16 +23,13 @@ const CustomInput = ({
 }: CustomInputProps) => {
   const [local, setLocal] = useState<string>(value ?? '');
 
+  useEffect(() => {
+    setLocal(value ?? '');
+  }, [value]);
+
   const handleCommit = () => {
     if (local.trim() !== value?.trim()) {
       onChangeCommitted(local);
-    }
-  };
-
-  const handleActions = () => {
-    handleCommit();
-    if (!multiline) {
-      Keyboard.dismiss();
     }
   };
 
@@ -44,7 +41,8 @@ const CustomInput = ({
       value={local}
       onChangeText={setLocal}
       onBlur={handleCommit}
-      onSubmitEditing={multiline ? undefined : handleActions}
+      onSubmitEditing={handleCommit}
+      submitBehavior={multiline ? 'newline' : 'blurAndSubmit'}
       returnKeyType={multiline ? 'default' : 'done'}
       multiline={multiline}
       maxLength={multiline ? 500 : 40}
