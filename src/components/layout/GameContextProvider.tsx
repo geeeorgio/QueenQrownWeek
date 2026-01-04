@@ -1,4 +1,10 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react';
 
 import {
   BUG_EXCHANGE,
@@ -21,7 +27,6 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
   const [onboardingDone, setOnboardingDone] = useState(false);
   const [regDone, setRegDone] = useState(false);
   const [canGetTask, setCanGetTask] = useState(true);
-  const [taskDone, setTaskDone] = useState(false);
   const [userData, setUserDataState] = useState<userDataType>({
     name: '',
     note: '',
@@ -73,16 +78,12 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
       if (savedExchange) setExchange(savedExchange);
 
       if (savedTasks) {
-        const lastTask = [...savedTasks]
-          .reverse()
-          .find((t) => t.completed && t.completedAt);
+        const lastTask = [...savedTasks].reverse().find((t) => t.completedAt);
         if (lastTask?.completedAt) {
           const hoursPassed =
             (Date.now() - new Date(lastTask.completedAt).getTime()) /
             (1000 * 60 * 60);
-          const isAvailable = hoursPassed >= 24;
-          setCanGetTask(isAvailable);
-          setTaskDone(!isAvailable);
+          setCanGetTask(hoursPassed >= 24);
         }
       }
     };
@@ -123,6 +124,43 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
     await setItemInStorage('exchangeHistory', val);
   };
 
+  const completeTask = useCallback(
+    async (taskId: string, photoUri: string, userNote: string) => {
+      const now = new Date().toISOString();
+
+      setTasks((currentTasks) => {
+        const updatedTasks = currentTasks.map((t) =>
+          t.id === taskId
+            ? {
+                ...t,
+                completed: true,
+                photoUri,
+                userNote,
+                completedAt: now,
+              }
+            : t,
+        );
+        setItemInStorage('tasksHistory', updatedTasks);
+        return updatedTasks;
+      });
+
+      const types: ArtefactIdType[] = ['Pyramid', 'Flower', 'Bug'];
+      const randomType = types[Math.floor(Math.random() * types.length)];
+
+      setArtefacts((currentArtefacts) => {
+        const updatedArtefacts = {
+          ...currentArtefacts,
+          [randomType]: currentArtefacts[randomType] + 1,
+        };
+        setItemInStorage('artefactsCount', updatedArtefacts);
+        return updatedArtefacts;
+      });
+
+      setCanGetTask(false);
+    },
+    [],
+  );
+
   const contextValue = useMemo(
     () => ({
       contextBackground: MAIN_BG_IMAGE,
@@ -132,8 +170,6 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
       setIsContextRegistrationCompleted,
       canGetNewTask: canGetTask,
       setCanGetNewTask: setCanGetTask,
-      dailyTaskDone: taskDone,
-      setDailyTaskDone: setTaskDone,
       userContextData: userData,
       setUserData,
       artefactsContextCount: artefacts,
@@ -142,16 +178,17 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
       setTasksContextHistory,
       exchangeContextHistory: exchange,
       setExchangeContextHistory,
+      completeTask,
     }),
     [
       onboardingDone,
       regDone,
       canGetTask,
-      taskDone,
       userData,
       artefacts,
       tasks,
       exchange,
+      completeTask,
     ],
   );
 

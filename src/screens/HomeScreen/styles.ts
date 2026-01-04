@@ -120,6 +120,13 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.yellowMain,
     borderColor: COLORS.yellowMain,
   },
+  dayButtonDone: {
+    backgroundColor: COLORS.greenBackground,
+    borderColor: COLORS.yellowMain,
+  },
+  dayTextContainerDone: {
+    backgroundColor: COLORS.greenCircle,
+  },
   dayTextContainer: {
     width: wp(32),
     height: wp(32),
@@ -184,6 +191,19 @@ export const styles = StyleSheet.create({
     fontSize: sp(15),
     fontFamily: FONTS.MontserratBold,
     color: COLORS.brown,
+    textAlign: 'center',
+  },
+  cooldownContainer: {
+    width: '100%',
+    height: hp(56),
+    marginTop: hp(4),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  cooldownText: {
+    fontSize: sp(24),
+    fontFamily: FONTS.MontserratBold,
+    color: COLORS.white,
     textAlign: 'center',
   },
 });

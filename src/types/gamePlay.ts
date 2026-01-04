@@ -42,9 +42,6 @@ export type GameContextType = {
   canGetNewTask: boolean;
   setCanGetNewTask: (value: boolean) => void;
   //
-  dailyTaskDone: boolean;
-  setDailyTaskDone: (value: boolean) => void;
-  //
   userContextData: userDataType;
   setUserData: (value: userDataType) => void;
   //
@@ -62,4 +59,10 @@ export type GameContextType = {
   setExchangeContextHistory: (value: {
     [key in ArtefactIdType]: ExchangeItemType[];
   }) => void;
+  //
+  completeTask: (
+    taskId: string,
+    photoUri: string,
+    userNote: string,
+  ) => Promise<void>;
 };

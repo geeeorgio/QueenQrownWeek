@@ -29,7 +29,7 @@ const CustomInput = ({
 
   const handleCommit = () => {
     if (local.trim() !== value?.trim()) {
-      onChangeCommitted(local);
+      onChangeCommitted(local.trim());
     }
   };
 

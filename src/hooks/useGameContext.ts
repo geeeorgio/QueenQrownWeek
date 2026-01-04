@@ -27,11 +27,6 @@ export const GameContext = createContext<GameContextType>({
     console.warn('GameContext not initialized');
   },
   //
-  dailyTaskDone: false,
-  setDailyTaskDone: async () => {
-    console.warn('GameContext not initialized');
-  },
-  //
   userContextData: {
     name: '',
     note: '',
@@ -63,6 +58,10 @@ export const GameContext = createContext<GameContextType>({
     Crown: [CROWN_EXCHANGE],
   },
   setExchangeContextHistory: async () => {
+    console.warn('GameContext not initialized');
+  },
+  //
+  completeTask: async () => {
     console.warn('GameContext not initialized');
   },
 });

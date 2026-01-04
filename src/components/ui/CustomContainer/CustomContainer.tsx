@@ -17,7 +17,7 @@ const CustomContainer = ({
   variant = 'brown',
 }: CustomContainerProps) => {
   return (
-    <View style={[styles.default, extraStyle, styles[variant]]}>
+    <View style={[styles.default, styles[variant], extraStyle]}>
       {children}
     </View>
   );
