@@ -161,6 +161,29 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
     [],
   );
 
+  const resetGameData = useCallback(async () => {
+    const emptyUser: userDataType = { name: '', note: '', photo: null };
+    const emptyArtefacts = { Pyramid: 0, Flower: 0, Bug: 0, Crown: 0 };
+    const emptyExchange = { Pyramid: [], Flower: [], Bug: [], Crown: [] };
+    const initialTasks = TASKS;
+
+    setUserDataState(emptyUser);
+    setArtefacts(emptyArtefacts);
+    setTasks(initialTasks);
+    setCanGetTask(true);
+
+    try {
+      await Promise.all([
+        setItemInStorage('userData', emptyUser),
+        setItemInStorage('artefactsCount', emptyArtefacts),
+        setItemInStorage('tasksHistory', initialTasks),
+        setItemInStorage('exchangeHistory', emptyExchange),
+      ]);
+    } catch (error) {
+      console.error('Failed to reset game data in storage:', error);
+    }
+  }, []);
+
   const contextValue = useMemo(
     () => ({
       contextBackground: MAIN_BG_IMAGE,
@@ -179,6 +202,7 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
       exchangeContextHistory: exchange,
       setExchangeContextHistory,
       completeTask,
+      resetGameData,
     }),
     [
       onboardingDone,
@@ -189,6 +213,7 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
       tasks,
       exchange,
       completeTask,
+      resetGameData,
     ],
   );
 

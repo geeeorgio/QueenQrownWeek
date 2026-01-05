@@ -65,4 +65,6 @@ export type GameContextType = {
     photoUri: string,
     userNote: string,
   ) => Promise<void>;
+  //
+  resetGameData: () => Promise<void>;
 };

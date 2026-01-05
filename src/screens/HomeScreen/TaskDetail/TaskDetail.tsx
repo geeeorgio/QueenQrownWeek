@@ -2,11 +2,12 @@ import React, { useMemo, useState } from 'react';
 import {
   Image,
   ImageBackground,
+  Keyboard,
   Modal,
+  Pressable,
   TouchableOpacity,
   View,
 } from 'react-native';
-import ReactNativeBlobUtil from 'react-native-blob-util';
 import { launchCamera } from 'react-native-image-picker';
 
 import { styles } from './styles';
@@ -22,7 +23,7 @@ import {
 import { BTN_FRAME, COLORS, QUEEN } from 'src/constants';
 import { useGameContext } from 'src/hooks/useGameContext';
 import type { TaskType } from 'src/types';
-import { hp, wp } from 'src/utils';
+import { hp, saveImageToApp, wp } from 'src/utils';
 
 type TaskDetailProps = {
   task: TaskType;
@@ -40,31 +41,15 @@ const TaskDetail = ({ task, onClose }: TaskDetailProps) => {
     tasksContextHistory.findIndex((t) => t.id === task.id) + 1 || 1;
 
   const handlePickImage = async () => {
-    const result = await launchCamera({
-      mediaType: 'photo',
-      quality: 0.5,
-    });
+    const result = await launchCamera({ mediaType: 'photo', quality: 0.5 });
 
-    if (result.didCancel) {
-      return;
-    }
+    if (result.didCancel || !result.assets?.[0].uri) return;
 
-    if (result.errorMessage) {
-      console.error('Error picking image:', result.errorMessage);
-      return;
-    }
+    const fileName = `task_${task.id}_${Date.now()}.jpg`;
+    const savedPath = await saveImageToApp(result.assets[0].uri, fileName);
 
-    if (result.assets && result.assets[0].uri) {
-      const sourceUri = result.assets[0].uri;
-      const fileName = `task_${task.id}_${Date.now()}.jpg`;
-      const destPath = `${ReactNativeBlobUtil.fs.dirs.DocumentDir}/${fileName}`;
-
-      try {
-        await ReactNativeBlobUtil.fs.cp(sourceUri, destPath);
-        setImageUri(`file://${destPath}`);
-      } catch (error) {
-        console.error('Save task image error:', error);
-      }
+    if (savedPath) {
+      setImageUri(savedPath);
     }
   };
 
@@ -105,108 +90,110 @@ const TaskDetail = ({ task, onClose }: TaskDetailProps) => {
       statusBarTranslucent={true}
       onRequestClose={onClose}
     >
-      <View style={styles.overlay}>
-        <CustomContainer extraStyle={styles.scrollContent}>
-          <View style={styles.header}>
+      <Pressable style={{ flex: 1 }} onPress={Keyboard.dismiss}>
+        <View style={styles.overlay}>
+          <CustomContainer extraStyle={styles.scrollContent}>
+            <View style={styles.header}>
+              <CustomContainer
+                variant="yellow"
+                extraStyle={styles.taskNumberContainer}
+              >
+                <View style={styles.taskNumberContent}>
+                  <CustomText extraStyle={styles.taskNumberText}>
+                    {taskNumber || 1}
+                  </CustomText>
+                </View>
+              </CustomContainer>
+              <CustomText extraStyle={styles.headerText}>
+                Task {taskNumber || 1}
+              </CustomText>
+            </View>
+
             <CustomContainer
               variant="yellow"
-              extraStyle={styles.taskNumberContainer}
+              extraStyle={styles.taskDescriptionCard}
             >
-              <View style={styles.taskNumberContent}>
-                <CustomText extraStyle={styles.taskNumberText}>
-                  {taskNumber || 1}
-                </CustomText>
-              </View>
-            </CustomContainer>
-            <CustomText extraStyle={styles.headerText}>
-              Task {taskNumber || 1}
-            </CustomText>
-          </View>
-
-          <CustomContainer
-            variant="yellow"
-            extraStyle={styles.taskDescriptionCard}
-          >
-            <View style={styles.taskDescriptionContent}>
-              <View style={styles.queenImageContainer}>
-                <Image
-                  source={QUEEN}
-                  style={styles.queenImage}
-                  resizeMode="cover"
-                />
-              </View>
-              <View style={styles.taskDescriptionTextContainer}>
-                <CustomText extraStyle={styles.taskDescriptionText}>
-                  {task.description}
-                </CustomText>
-              </View>
-            </View>
-          </CustomContainer>
-
-          <View style={styles.aboutTaskSection}>
-            <CustomContainer extraStyle={styles.aboutTaskInputContainer}>
-              <CustomInput
-                placeholder="About task"
-                value={note}
-                onChangeCommitted={setNote}
-                multiline={true}
-                extraStyle={styles.aboutTaskInput}
-              />
-            </CustomContainer>
-          </View>
-
-          <View style={styles.photoSection}>
-            <TouchableOpacity onPress={handlePickImage} activeOpacity={0.8}>
-              <CustomContainer extraStyle={styles.addPhotoContainer}>
-                {imageUri ? (
+              <View style={styles.taskDescriptionContent}>
+                <View style={styles.queenImageContainer}>
                   <Image
-                    source={{ uri: imageUri }}
-                    style={styles.previewImage}
+                    source={QUEEN}
+                    style={styles.queenImage}
                     resizeMode="cover"
                   />
-                ) : (
-                  <>
-                    <ImgIcon
-                      width={wp(44)}
-                      height={hp(44)}
-                      color={COLORS.yellowMain}
-                    />
-                    <CustomText extraStyle={styles.addPhotoText}>
-                      Your photo
-                    </CustomText>
-                  </>
-                )}
-              </CustomContainer>
-            </TouchableOpacity>
-          </View>
-        </CustomContainer>
-        <CustomButton
-          onPress={handleComplete}
-          extraStyle={styles.completeButton}
-        >
-          <ImageBackground
-            source={BTN_FRAME}
-            resizeMode="contain"
-            style={styles.completeButtonImage}
-          >
-            <CustomText extraStyle={styles.completeButtonText}>
-              {isCompleting ? 'Completing...' : 'Complete'}
-            </CustomText>
-          </ImageBackground>
-        </CustomButton>
-      </View>
+                </View>
+                <View style={styles.taskDescriptionTextContainer}>
+                  <CustomText extraStyle={styles.taskDescriptionText}>
+                    {task.description}
+                  </CustomText>
+                </View>
+              </View>
+            </CustomContainer>
 
-      {showModal && (
-        <CustomModal
-          visible={showModal}
-          title="You are almost there"
-          description="At least 3 characters to describe the task and a picture to complete"
-          onConfirm={() => setShowModal(false)}
-          onCancel={handleCloseModal}
-          confirmText="I'll do it now!"
-          cancelText="Maybe later"
-        />
-      )}
+            <View style={styles.aboutTaskSection}>
+              <CustomContainer extraStyle={styles.aboutTaskInputContainer}>
+                <CustomInput
+                  placeholder="About task"
+                  value={note}
+                  onChangeCommitted={setNote}
+                  multiline={true}
+                  extraStyle={styles.aboutTaskInput}
+                />
+              </CustomContainer>
+            </View>
+
+            <View style={styles.photoSection}>
+              <TouchableOpacity onPress={handlePickImage} activeOpacity={0.8}>
+                <CustomContainer extraStyle={styles.addPhotoContainer}>
+                  {imageUri ? (
+                    <Image
+                      source={{ uri: imageUri }}
+                      style={styles.previewImage}
+                      resizeMode="cover"
+                    />
+                  ) : (
+                    <>
+                      <ImgIcon
+                        width={wp(44)}
+                        height={hp(44)}
+                        color={COLORS.yellowMain}
+                      />
+                      <CustomText extraStyle={styles.addPhotoText}>
+                        Your photo
+                      </CustomText>
+                    </>
+                  )}
+                </CustomContainer>
+              </TouchableOpacity>
+            </View>
+          </CustomContainer>
+          <CustomButton
+            onPress={handleComplete}
+            extraStyle={styles.completeButton}
+          >
+            <ImageBackground
+              source={BTN_FRAME}
+              resizeMode="contain"
+              style={styles.completeButtonImage}
+            >
+              <CustomText extraStyle={styles.completeButtonText}>
+                {isCompleting ? 'Completing...' : 'Complete'}
+              </CustomText>
+            </ImageBackground>
+          </CustomButton>
+        </View>
+
+        {showModal && (
+          <CustomModal
+            visible={showModal}
+            title="You are almost there"
+            description="At least 3 characters to describe the task and a picture to complete"
+            onConfirm={() => setShowModal(false)}
+            onCancel={handleCloseModal}
+            confirmText="I'll do it now!"
+            cancelText="Maybe later"
+          />
+        )}
+      </Pressable>
     </Modal>
   );
 };

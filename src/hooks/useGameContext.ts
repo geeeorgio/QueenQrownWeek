@@ -64,6 +64,10 @@ export const GameContext = createContext<GameContextType>({
   completeTask: async () => {
     console.warn('GameContext not initialized');
   },
+  //
+  resetGameData: async () => {
+    console.warn('GameContext not initialized');
+  },
 });
 
 export const useGameContext = () => {

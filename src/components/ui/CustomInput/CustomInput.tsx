@@ -12,6 +12,7 @@ interface CustomInputProps {
   onChangeCommitted: (text: string) => void;
   extraStyle?: StyleProp<TextStyle>;
   multiline?: boolean;
+  editable?: boolean;
 }
 
 const CustomInput = ({
@@ -20,6 +21,7 @@ const CustomInput = ({
   onChangeCommitted,
   extraStyle,
   multiline = false,
+  editable = true,
 }: CustomInputProps) => {
   const [local, setLocal] = useState<string>(value ?? '');
 
@@ -46,6 +48,7 @@ const CustomInput = ({
       returnKeyType={multiline ? 'default' : 'done'}
       multiline={multiline}
       maxLength={multiline ? 500 : 40}
+      editable={editable}
     />
   );
 };

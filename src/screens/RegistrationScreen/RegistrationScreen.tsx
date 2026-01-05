@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import ReactNativeBlobUtil from 'react-native-blob-util';
 import { launchCamera } from 'react-native-image-picker';
 
 import { styles } from './styles';
@@ -22,7 +21,7 @@ import {
 } from 'src/components';
 import { BTN_FRAME, COLORS, LOGO } from 'src/constants';
 import { useGameContext } from 'src/hooks/useGameContext';
-import { hp, wp } from 'src/utils';
+import { hp, saveImageToApp, wp } from 'src/utils';
 
 const RegistrationScreen = () => {
   const { setUserData, setIsContextRegistrationCompleted } = useGameContext();
@@ -40,31 +39,15 @@ const RegistrationScreen = () => {
   }, [name, note, imageUri]);
 
   const handlePickImage = async () => {
-    const result = await launchCamera({
-      mediaType: 'photo',
-      quality: 0.5,
-    });
+    const result = await launchCamera({ mediaType: 'photo', quality: 0.5 });
 
-    if (result.didCancel) {
-      return;
-    }
+    if (result.didCancel || !result.assets?.[0].uri) return;
 
-    if (result.errorMessage) {
-      console.error('Error picking image:', result.errorMessage);
-      return;
-    }
+    const fileName = `user_avatar_${Date.now()}.jpg`;
+    const savedPath = await saveImageToApp(result.assets[0].uri, fileName);
 
-    if (result.assets && result.assets[0].uri) {
-      const sourceUri = result.assets[0].uri;
-      const fileName = `user_avatar_${Date.now()}.jpg`;
-      const destPath = `${ReactNativeBlobUtil.fs.dirs.DocumentDir}/${fileName}`;
-
-      try {
-        await ReactNativeBlobUtil.fs.cp(sourceUri, destPath);
-        setImageUri(`file://${destPath}`);
-      } catch (error) {
-        console.error('Save image error:', error);
-      }
+    if (savedPath) {
+      setImageUri(savedPath);
     }
   };
 

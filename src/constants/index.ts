@@ -5,3 +5,4 @@ export * from './tasks';
 export * from './exchange';
 export * from './tabBarIcons';
 export * from './storageKeys';
+export * from './pathToSavedImages';

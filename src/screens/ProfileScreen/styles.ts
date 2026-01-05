@@ -1,5 +1,72 @@
 import { StyleSheet } from 'react-native';
 
+import { COLORS, FONTS } from 'src/constants';
+import { hp, sp, wp } from 'src/utils';
+
 export const styles = StyleSheet.create({
-  container: {},
+  container: {
+    width: '100%',
+    paddingBottom: hp(120),
+  },
+  scrollViewContent: {
+    paddingBottom: hp(40),
+  },
+  registrationHeader: {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    marginBottom: hp(20),
+  },
+  registrationHeaderText: {
+    fontFamily: FONTS.MontserratBold,
+    fontSize: sp(30),
+    color: COLORS.white,
+  },
+  registrationForm: {
+    width: '100%',
+    gap: hp(16),
+  },
+  inputContainer: {
+    width: '100%',
+    paddingVertical: hp(12),
+  },
+  input: {
+    width: '100%',
+    fontFamily: FONTS.InterRegular,
+    fontSize: sp(12),
+    color: COLORS.white,
+  },
+  addPhotoContainer: {
+    width: '100%',
+    height: hp(200),
+    justifyContent: 'center',
+    gap: wp(12),
+    overflow: 'hidden',
+  },
+  previewImage: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  addPhotoText: {
+    fontFamily: FONTS.InterRegular,
+    fontSize: sp(14),
+    textAlign: 'center',
+  },
+  saveButton: {
+    width: '50%',
+    height: hp(80),
+    marginBottom: hp(20),
+    alignSelf: 'center',
+  },
+  buttonImage: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: sp(18),
+    fontFamily: FONTS.MontserratBold,
+    color: COLORS.brown,
+    textAlign: 'center',
+  },
 });
