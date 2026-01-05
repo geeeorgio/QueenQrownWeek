@@ -9,6 +9,7 @@ export const COLORS = {
   greenCircle: '#005200',
   red: '#FF0000',
   blue: '#007aff',
+  historyBrown: '#4b391a',
 
   containerBorder: 'rgba(255, 255, 255, 0.1)',
   yellowBorder: 'rgba(249, 198, 0, 0.5)',
