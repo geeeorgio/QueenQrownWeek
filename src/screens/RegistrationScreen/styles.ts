@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   scrollViewContent: {
+    paddingTop: hp(20),
     paddingBottom: hp(40),
   },
   registrationHeader: {
@@ -48,7 +49,7 @@ export const styles = StyleSheet.create({
   input: {
     width: '100%',
     fontFamily: FONTS.InterRegular,
-    fontSize: sp(12),
+    fontSize: sp(11),
     color: COLORS.white,
   },
   addPhotoContainer: {
@@ -63,12 +64,12 @@ export const styles = StyleSheet.create({
   },
   addPhotoText: {
     fontFamily: FONTS.InterRegular,
-    fontSize: sp(14),
+    fontSize: sp(12),
     textAlign: 'center',
   },
   saveButton: {
     width: '100%',
-    height: hp(80),
+    height: hp(66),
     marginBottom: hp(20),
   },
   buttonImage: {
@@ -78,7 +79,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    fontSize: sp(20),
+    fontSize: sp(16),
     fontFamily: FONTS.MontserratBold,
     color: COLORS.brown,
     textAlign: 'center',

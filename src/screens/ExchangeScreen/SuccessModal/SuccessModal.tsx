@@ -33,10 +33,6 @@ const SuccessModal = ({
   const isCrown = artefactType === 'Crown';
   const artefact = ARTEFACTS.find((a) => a.id === artefactType);
 
-  const handleSharePress = async () => {
-    await handleShare();
-  };
-
   return (
     <Modal
       visible={visible}
@@ -47,7 +43,11 @@ const SuccessModal = ({
     >
       <Pressable style={styles.overlay} onPress={onClose}>
         <CustomText extraStyle={styles.title}>Successfully!</CustomText>
-        <Pressable style={styles.content} onPress={(e) => e.stopPropagation()}>
+        <View
+          style={styles.content}
+          onStartShouldSetResponder={() => true}
+          onTouchEnd={(e) => e.stopPropagation()}
+        >
           {artefact && (
             <View style={styles.artefactContainer}>
               <Image
@@ -58,14 +58,26 @@ const SuccessModal = ({
             </View>
           )}
 
-          <CustomContainer variant="yellow" extraStyle={styles.phraseCard}>
-            <View
-              style={[
-                styles.phraseCardContent,
-                isCrown && { flexDirection: 'column' },
-              ]}
-            >
-              {!isCrown && (
+          <CustomContainer
+            variant="yellow"
+            extraStyle={[styles.phraseCard, isCrown && styles.crownPhraseCard]}
+          >
+            {isCrown ? (
+              <ScrollView
+                nestedScrollEnabled={true}
+                showsVerticalScrollIndicator={true}
+                contentContainerStyle={styles.crownPhraseTextContainerContent}
+              >
+                <Pressable onPress={() => {}} style={{ width: '100%' }}>
+                  <CustomText
+                    extraStyle={[styles.phraseText, styles.crownPhraseText]}
+                  >
+                    {exchangeItem.description}
+                  </CustomText>
+                </Pressable>
+              </ScrollView>
+            ) : (
+              <View style={styles.phraseCardContent}>
                 <View style={styles.queenImageContainer}>
                   <Image
                     source={QUEEN}
@@ -73,35 +85,20 @@ const SuccessModal = ({
                     resizeMode="contain"
                   />
                 </View>
-              )}
-
-              <View
-                style={[
-                  styles.phraseTextContainer,
-                  isCrown && styles.crownPhraseTextContainer,
-                ]}
-              >
-                <ScrollView
-                  showsVerticalScrollIndicator={isCrown}
-                  contentContainerStyle={
-                    isCrown && styles.crownPhraseTextContainerContent
-                  }
-                >
-                  <CustomText
-                    extraStyle={[
-                      styles.phraseText,
-                      isCrown && styles.crownPhraseText,
-                    ]}
-                  >
+                <View style={styles.phraseTextContainer}>
+                  <CustomText extraStyle={styles.phraseText}>
                     {exchangeItem.description}
                   </CustomText>
-                </ScrollView>
+                </View>
               </View>
-            </View>
+            )}
           </CustomContainer>
 
           <View style={styles.buttonsContainer}>
-            <CustomButton onPress={handleSharePress} extraStyle={styles.button}>
+            <CustomButton
+              onPress={() => handleShare()}
+              extraStyle={styles.button}
+            >
               <ImageBackground
                 source={BTN_FRAME}
                 resizeMode="contain"
@@ -110,7 +107,6 @@ const SuccessModal = ({
                 <CustomText extraStyle={styles.buttonText}>Share</CustomText>
               </ImageBackground>
             </CustomButton>
-
             <CustomButton onPress={onClose} extraStyle={styles.button}>
               <ImageBackground
                 source={BTN_FRAME}
@@ -121,7 +117,7 @@ const SuccessModal = ({
               </ImageBackground>
             </CustomButton>
           </View>
-        </Pressable>
+        </View>
       </Pressable>
     </Modal>
   );

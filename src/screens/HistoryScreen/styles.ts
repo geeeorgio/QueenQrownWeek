@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   },
   headerTitle: {
     fontFamily: FONTS.MontserratBold,
-    fontSize: sp(30),
+    fontSize: sp(26),
   },
   listContent: {
     paddingBottom: hp(100),
@@ -43,11 +43,11 @@ export const styles = StyleSheet.create({
   },
   dayText: {
     fontFamily: FONTS.InterSemiBold,
-    fontSize: sp(22),
+    fontSize: sp(18),
   },
   descriptionText: {
     fontFamily: FONTS.InterRegular,
-    fontSize: sp(12),
+    fontSize: sp(10),
     flexShrink: 1,
   },
   shareButton: {
@@ -62,7 +62,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   shareButtonText: {
-    fontSize: sp(16),
+    fontSize: sp(14),
     fontFamily: FONTS.MontserratBold,
     color: COLORS.brown,
     textAlign: 'center',
@@ -90,7 +90,7 @@ export const styles = StyleSheet.create({
   },
   userNote: {
     fontFamily: FONTS.InterRegular,
-    fontSize: sp(10),
+    fontSize: sp(9),
     textAlign: 'left',
     width: '100%',
   },
@@ -125,7 +125,7 @@ export const styles = StyleSheet.create({
     paddingRight: hp(12),
   },
   emptyText: {
-    fontSize: sp(15),
+    fontSize: sp(14),
     color: COLORS.brown,
     textAlign: 'left',
   },

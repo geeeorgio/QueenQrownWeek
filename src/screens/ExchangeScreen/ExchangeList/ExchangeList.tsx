@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FlatList, Image, ImageBackground, View } from 'react-native';
 
 import SuccessModal from '../SuccessModal/SuccessModal';
@@ -9,18 +9,8 @@ import { CustomButton, CustomContainer, CustomText } from 'src/components';
 import { ARTEFACTS, BTN_FRAME, CATEGORY_DESCRIPTIONS } from 'src/constants';
 import { useGameContext } from 'src/hooks/useGameContext';
 import type { ArtefactIdType, ArtefactType } from 'src/types';
-import { setItemInStorage } from 'src/utils';
 
 const ExchangeList = () => {
-  useEffect(() => {
-    setItemInStorage('artefactsCount', {
-      Pyramid: 20,
-      Flower: 20,
-      Bug: 20,
-      Crown: 44,
-    });
-  }, []);
-
   const { artefactsContextCount, exchangeContextHistory, handleExchange } =
     useGameContext();
 

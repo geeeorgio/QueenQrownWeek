@@ -23,8 +23,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: FONTS.MontserratBold,
-    fontSize: sp(30),
-    color: COLORS.white,
+    fontSize: sp(28),
     marginBottom: hp(10),
     textAlign: 'center',
   },
@@ -38,29 +37,8 @@ export const styles = StyleSheet.create({
     width: '80%',
     height: '80%',
   },
-  phraseCard: {
-    width: '100%',
-    minHeight: hp(121),
-    maxHeight: hp(250),
-    padding: 0,
-    overflow: 'hidden',
-  },
-  phraseCardContent: {
-    width: '100%',
-    height: '100%',
-    flexDirection: 'row',
-    gap: wp(12),
-    alignItems: 'center',
-  },
-  crownPhraseTextContainer: {
-    width: '100%',
-    maxHeight: hp(250),
-  },
-  crownPhraseTextContainerContent: {
-    paddingVertical: wp(10),
-  },
   queenImageContainer: {
-    width: wp(80),
+    width: wp(100),
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -71,12 +49,36 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  phraseCard: {
+    width: '100%',
+    height: hp(160),
+    padding: 0,
+    overflow: 'hidden',
+  },
+  crownPhraseCard: {
+    height: hp(250),
+  },
+  phraseCardContent: {
+    width: '100%',
+    height: '100%',
+    flexDirection: 'row',
+    gap: wp(12),
+    alignItems: 'center',
+  },
+  crownPhraseTextContainer: {
+    width: '100%',
+    flex: 1,
+  },
   phraseTextContainer: {
     flex: 1,
     padding: wp(10),
+    height: '100%',
+  },
+  crownPhraseTextContainerContent: {
+    paddingVertical: wp(10),
   },
   phraseText: {
-    fontSize: sp(15),
+    fontSize: sp(14),
     color: COLORS.brown,
     textAlign: 'left',
   },

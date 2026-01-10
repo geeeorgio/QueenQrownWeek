@@ -8,11 +8,11 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     gap: hp(40),
-    paddingTop: hp(80),
+    paddingTop: hp(88),
   },
   womanWrapper: {
     paddingHorizontal: wp(24),
-    flex: 0.65,
+    flex: 0.67,
     width: '100%',
     justifyContent: 'center',
   },
@@ -21,11 +21,6 @@ export const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  subtitle: {
-    fontFamily: FONTS.InterRegular,
-    fontSize: sp(14),
-    textAlign: 'center',
   },
   queenImage: {
     width: '100%',
@@ -40,22 +35,27 @@ export const styles = StyleSheet.create({
     width: '75%',
     height: '75%',
   },
-  bottomContainer: {
-    flex: 0.35,
-    width: '100%',
-    paddingHorizontal: wp(20),
-    justifyContent: 'space-around',
-    gap: hp(20),
-    paddingBottom: hp(40),
-  },
   title: {
     fontFamily: FONTS.InterRegular,
-    fontSize: sp(20),
+    fontSize: sp(16),
     textAlign: 'center',
+  },
+  subtitle: {
+    fontFamily: FONTS.InterRegular,
+    fontSize: sp(11),
+    textAlign: 'center',
+  },
+  bottomContainer: {
+    flex: 0.33,
+    width: '100%',
+    paddingHorizontal: wp(20),
+    justifyContent: 'space-evenly',
+    gap: hp(20),
+    paddingBottom: hp(66),
   },
   button: {
     width: '100%',
-    height: hp(80),
+    height: hp(66),
   },
   buttonImage: {
     width: '100%',
@@ -64,7 +64,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    fontSize: sp(20),
+    fontSize: sp(16),
     fontFamily: FONTS.MontserratBold,
     color: COLORS.brown,
     textAlign: 'center',

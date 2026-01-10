@@ -30,8 +30,7 @@ export const styles = StyleSheet.create({
   },
   headerText: {
     fontFamily: FONTS.MontserratBold,
-    fontSize: sp(30),
-    color: COLORS.white,
+    fontSize: sp(26),
   },
   content: {
     width: '100%',
@@ -71,12 +70,12 @@ export const styles = StyleSheet.create({
     padding: wp(12),
   },
   descriptionText: {
-    fontSize: sp(12),
+    fontSize: sp(11),
     color: COLORS.brown,
   },
   shareButton: {
     width: wp(160),
-    height: hp(54),
+    height: hp(66),
     alignSelf: 'center',
   },
   shareButtonImage: {

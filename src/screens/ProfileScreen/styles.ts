@@ -6,7 +6,7 @@ import { hp, sp, wp } from 'src/utils';
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    paddingBottom: hp(120),
+    paddingBottom: hp(140),
   },
   scrollViewContent: {
     paddingBottom: hp(40),
@@ -19,8 +19,7 @@ export const styles = StyleSheet.create({
   },
   registrationHeaderText: {
     fontFamily: FONTS.MontserratBold,
-    fontSize: sp(30),
-    color: COLORS.white,
+    fontSize: sp(26),
   },
   registrationForm: {
     width: '100%',
@@ -33,7 +32,7 @@ export const styles = StyleSheet.create({
   input: {
     width: '100%',
     fontFamily: FONTS.InterRegular,
-    fontSize: sp(12),
+    fontSize: sp(11),
     color: COLORS.white,
   },
   addPhotoContainer: {
@@ -48,12 +47,12 @@ export const styles = StyleSheet.create({
   },
   addPhotoText: {
     fontFamily: FONTS.InterRegular,
-    fontSize: sp(14),
+    fontSize: sp(12),
     textAlign: 'center',
   },
   saveButton: {
     width: '50%',
-    height: hp(80),
+    height: hp(66),
     marginBottom: hp(20),
     alignSelf: 'center',
   },
@@ -64,7 +63,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    fontSize: sp(18),
+    fontSize: sp(16),
     fontFamily: FONTS.MontserratBold,
     color: COLORS.brown,
     textAlign: 'center',

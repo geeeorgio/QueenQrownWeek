@@ -13,9 +13,9 @@ export const styles = StyleSheet.create({
   },
   scrollContent: {
     width: '100%',
-    paddingVertical: hp(16),
+    paddingVertical: hp(20),
     gap: hp(20),
-    marginBottom: hp(40),
+    marginBottom: hp(20),
   },
   header: {
     width: '60%',
@@ -26,29 +26,29 @@ export const styles = StyleSheet.create({
     marginBottom: hp(10),
   },
   taskNumberContainer: {
-    width: wp(64),
-    height: wp(64),
+    width: wp(60),
+    height: wp(60),
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: wp(12),
     borderColor: COLORS.yellowMain,
   },
   taskNumberContent: {
-    width: wp(32),
-    height: wp(32),
+    width: wp(30),
+    height: wp(30),
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: wp(16),
+    borderRadius: wp(15),
     backgroundColor: COLORS.brown,
   },
   taskNumberText: {
     fontFamily: FONTS.InterSemiBold,
-    fontSize: sp(22),
+    fontSize: sp(16),
     textAlign: 'center',
   },
   headerText: {
     fontFamily: FONTS.InterSemiBold,
-    fontSize: sp(22),
+    fontSize: sp(20),
   },
   taskDescriptionCard: {
     width: '100%',
@@ -78,7 +78,7 @@ export const styles = StyleSheet.create({
   },
   taskDescriptionText: {
     fontFamily: FONTS.InterSemiBold,
-    fontSize: sp(14),
+    fontSize: sp(12),
     color: COLORS.brown,
   },
   aboutTaskSection: {
@@ -87,13 +87,13 @@ export const styles = StyleSheet.create({
   },
   aboutTaskLabel: {
     fontFamily: FONTS.InterRegular,
-    fontSize: sp(14),
+    fontSize: sp(12),
     color: COLORS.placeholderTextColor,
     marginLeft: wp(4),
   },
   aboutTaskInputContainer: {
     width: '100%',
-    minHeight: hp(110),
+    minHeight: hp(100),
     borderRadius: wp(16),
     padding: wp(16),
   },
@@ -120,11 +120,11 @@ export const styles = StyleSheet.create({
   },
   addPhotoText: {
     fontFamily: FONTS.InterRegular,
-    fontSize: sp(14),
+    fontSize: sp(12),
     textAlign: 'center',
   },
   completeButton: {
-    marginBottom: hp(20),
+    marginBottom: hp(40),
     width: '50%',
     height: hp(66),
     alignSelf: 'center',

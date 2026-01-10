@@ -22,13 +22,13 @@ export const styles = StyleSheet.create({
     width: '80%',
   },
   title: {
-    fontSize: sp(18),
+    fontSize: sp(16),
     textAlign: 'center',
     color: COLORS.black,
     marginBottom: hp(20),
   },
   description: {
-    fontSize: sp(14),
+    fontSize: sp(12),
     textAlign: 'center',
     color: COLORS.black,
     marginBottom: hp(20),
@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
   },
   confirmButtonText: {
     fontFamily: FONTS.MontserratBold,
-    fontSize: sp(16),
+    fontSize: sp(14),
     color: COLORS.blue,
     textAlign: 'center',
   },
@@ -63,7 +63,7 @@ export const styles = StyleSheet.create({
   },
   cancelButtonText: {
     fontFamily: FONTS.MontserratBold,
-    fontSize: sp(16),
+    fontSize: sp(14),
     color: COLORS.red,
     textAlign: 'center',
   },

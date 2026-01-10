@@ -7,11 +7,12 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
+    paddingTop: hp(16),
   },
   scrollContent: {
     width: '100%',
     gap: hp(24),
-    paddingBottom: hp(100),
+    paddingBottom: hp(120),
   },
   profileSection: {
     width: '100%',
@@ -42,11 +43,11 @@ export const styles = StyleSheet.create({
   },
   greetingText: {
     fontFamily: FONTS.MontserratBold,
-    fontSize: sp(18),
+    fontSize: sp(16),
   },
   complimentText: {
     fontFamily: FONTS.InterRegular,
-    fontSize: sp(12),
+    fontSize: sp(10),
   },
   infoButton: {
     width: wp(64),
@@ -64,16 +65,16 @@ export const styles = StyleSheet.create({
     gap: wp(12),
   },
   artefactsLabel: {
-    flex: 0.2,
+    flex: 0.3,
     fontFamily: FONTS.InterRegular,
-    fontSize: sp(12),
+    fontSize: sp(11),
     color: COLORS.placeholderTextColor,
   },
   artefactsList: {
-    flex: 0.8,
+    flex: 0.7,
     flexDirection: 'row',
-    gap: wp(16),
-    justifyContent: 'space-evenly',
+    gap: wp(12),
+    justifyContent: 'space-around',
     alignItems: 'center',
   },
   artefactItem: {
@@ -83,12 +84,12 @@ export const styles = StyleSheet.create({
     gap: wp(6),
   },
   artefactImage: {
-    width: wp(30),
-    height: wp(30),
+    width: wp(24),
+    height: wp(24),
   },
   artefactCount: {
     fontFamily: FONTS.InterSemiBold,
-    fontSize: sp(22),
+    fontSize: sp(16),
   },
   daySection: {
     width: '100%',
@@ -98,7 +99,7 @@ export const styles = StyleSheet.create({
   },
   dayLabel: {
     fontFamily: FONTS.InterSemiBold,
-    fontSize: sp(22),
+    fontSize: sp(20),
   },
   dayButtons: {
     width: '100%',
@@ -138,7 +139,7 @@ export const styles = StyleSheet.create({
   },
   dayButtonText: {
     fontFamily: FONTS.InterSemiBold,
-    fontSize: sp(20),
+    fontSize: sp(16),
     textAlign: 'center',
   },
   taskCard: {
@@ -172,7 +173,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   taskCardText: {
-    fontSize: sp(15),
+    fontSize: sp(14),
     color: COLORS.brown,
     textAlign: 'left',
   },
@@ -188,7 +189,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   startDayButtonText: {
-    fontSize: sp(15),
+    fontSize: sp(14),
     fontFamily: FONTS.MontserratBold,
     color: COLORS.brown,
     textAlign: 'center',
@@ -201,9 +202,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cooldownText: {
-    fontSize: sp(24),
+    fontSize: sp(20),
     fontFamily: FONTS.MontserratBold,
-    color: COLORS.white,
     textAlign: 'center',
   },
 });

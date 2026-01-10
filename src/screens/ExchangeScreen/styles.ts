@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
-import { COLORS, FONTS } from 'src/constants';
-import { hp, sp, wp } from 'src/utils';
+import { FONTS } from 'src/constants';
+import { hp, sp } from 'src/utils';
 
 export const styles = StyleSheet.create({
   container: {
@@ -11,10 +11,8 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: FONTS.MontserratBold,
-    fontSize: sp(30),
-    color: COLORS.white,
+    fontSize: sp(26),
     marginBottom: hp(20),
-    paddingHorizontal: wp(16),
   },
   content: {
     width: '100%',

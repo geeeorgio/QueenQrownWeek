@@ -29,11 +29,12 @@ export const styles = StyleSheet.create({
   },
   itemTitle: {
     fontFamily: FONTS.InterSemiBold,
-    fontSize: sp(20),
+    fontSize: sp(18),
   },
   itemDescription: {
     fontFamily: FONTS.InterRegular,
-    fontSize: sp(11),
+    fontSize: sp(10),
+    color: COLORS.placeholderTextColor,
   },
   crownImageContainer: {
     width: '100%',
@@ -56,7 +57,7 @@ export const styles = StyleSheet.create({
   },
   exchangeButton: {
     flex: 0.6,
-    height: hp(66),
+    height: hp(60),
     maxWidth: wp(166),
   },
   exchangeButtonImage: {
@@ -66,7 +67,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   exchangeButtonText: {
-    fontSize: sp(16),
+    fontSize: sp(14),
     fontFamily: FONTS.MontserratBold,
     color: COLORS.brown,
     textAlign: 'center',
@@ -82,7 +83,7 @@ export const styles = StyleSheet.create({
   },
   priceText: {
     fontFamily: FONTS.InterSemiBold,
-    fontSize: sp(22),
+    fontSize: sp(20),
   },
   priceIcon: {
     width: wp(30),
