@@ -19,7 +19,20 @@ const ExchangeList = () => {
     useState<ArtefactIdType | null>(null);
   const [selectedExchangeItem, setSelectedExchangeItem] = useState<any>(null);
 
-  const onExchangePress = async (type: ArtefactIdType) => {
+  const onExchangePress = async (
+    type: ArtefactIdType,
+    isAlreadyOpened: boolean,
+  ) => {
+    if (isAlreadyOpened) {
+      const history = exchangeContextHistory[type];
+      const item = history.find((h) => h.completed) || history[0];
+
+      setSelectedArtefactType(type);
+      setSelectedExchangeItem(item);
+      setSuccessModalVisible(true);
+      return;
+    }
+
     const result = await handleExchange(type);
     if (result) {
       setSelectedArtefactType(type);
@@ -40,7 +53,8 @@ const ExchangeList = () => {
       ? artefactsContextCount.Flower >= 3 && artefactsContextCount.Bug >= 3
       : artefactsContextCount[item.id] >= 1;
 
-    const isButtonEnabled = hasEnoughResources && !allOpened;
+    const canClickToView = allOpened;
+    const isButtonEnabled = hasEnoughResources || canClickToView;
 
     return (
       <CustomContainer
@@ -69,11 +83,12 @@ const ExchangeList = () => {
 
           <View style={styles.actionRow}>
             <CustomButton
-              onPress={() => onExchangePress(item.id)}
+              onPress={() => onExchangePress(item.id, allOpened)}
               disabled={!isButtonEnabled}
               extraStyle={[
                 styles.exchangeButton,
                 !isButtonEnabled && styles.disabledButton,
+                allOpened && { opacity: 1 },
               ]}
             >
               <ImageBackground
@@ -82,37 +97,38 @@ const ExchangeList = () => {
                 style={styles.exchangeButtonImage}
               >
                 <CustomText extraStyle={styles.exchangeButtonText}>
-                  {allOpened ? 'Completed' : 'Exchange'}
+                  {allOpened ? 'View Story' : 'Exchange'}
                 </CustomText>
               </ImageBackground>
             </CustomButton>
 
             <View style={styles.priceContainer}>
-              {isCrown ? (
-                <>
-                  <CustomText extraStyle={styles.priceText}>3</CustomText>
-                  <Image
-                    source={ARTEFACTS.find((a) => a.id === 'Flower')?.image}
-                    style={styles.priceIcon}
-                    resizeMode="contain"
-                  />
-                  <CustomText extraStyle={styles.priceText}>3</CustomText>
-                  <Image
-                    source={ARTEFACTS.find((a) => a.id === 'Bug')?.image}
-                    style={styles.priceIcon}
-                    resizeMode="contain"
-                  />
-                </>
-              ) : (
-                <>
-                  <CustomText extraStyle={styles.priceText}>1</CustomText>
-                  <Image
-                    source={item.image}
-                    style={styles.priceIcon}
-                    resizeMode="contain"
-                  />
-                </>
-              )}
+              {!allOpened &&
+                (isCrown ? (
+                  <>
+                    <CustomText extraStyle={styles.priceText}>3</CustomText>
+                    <Image
+                      source={ARTEFACTS.find((a) => a.id === 'Flower')?.image}
+                      style={styles.priceIcon}
+                      resizeMode="contain"
+                    />
+                    <CustomText extraStyle={styles.priceText}>3</CustomText>
+                    <Image
+                      source={ARTEFACTS.find((a) => a.id === 'Bug')?.image}
+                      style={styles.priceIcon}
+                      resizeMode="contain"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <CustomText extraStyle={styles.priceText}>1</CustomText>
+                    <Image
+                      source={item.image}
+                      style={styles.priceIcon}
+                      resizeMode="contain"
+                    />
+                  </>
+                ))}
             </View>
           </View>
         </View>
