@@ -68,6 +68,11 @@ export const GameContext = createContext<GameContextType>({
   resetGameData: async () => {
     console.warn('GameContext not initialized');
   },
+  //
+  handleExchange: async () => {
+    console.warn('GameContext not initialized');
+    return null;
+  },
 });
 
 export const useGameContext = () => {

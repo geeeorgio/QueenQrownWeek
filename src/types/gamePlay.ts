@@ -67,4 +67,6 @@ export type GameContextType = {
   ) => Promise<void>;
   //
   resetGameData: () => Promise<void>;
+  //
+  handleExchange: (type: ArtefactIdType) => Promise<ExchangeItemType | null>;
 };

@@ -1,5 +1,6 @@
 import GameBackground from './layout/GameBackground';
 import GameContextProvider from './layout/GameContextProvider';
+import ArtefactsDisplay from './ui/ArtefactsDisplay/ArtefactsDisplay';
 import CustomButton from './ui/CustomButton/CustomButton';
 import CustomContainer from './ui/CustomContainer/CustomContainer';
 import ExchangeIcon from './ui/CustomIcons/ExchangeIcon';
@@ -15,6 +16,7 @@ import CustomTabBar from './ui/CustomTabBar/CustomTabBar';
 import CustomText from './ui/CustomText/CustomText';
 
 export {
+  ArtefactsDisplay,
   ProfileIcon,
   CustomModal,
   GameBackground,

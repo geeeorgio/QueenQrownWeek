@@ -1,4 +1,4 @@
-import type { ExchangeItemType } from 'src/types';
+import type { ArtefactIdType, ExchangeItemType } from 'src/types';
 
 export const PYRAMID_EXCHANGE: ExchangeItemType[] = [
   {
@@ -161,6 +161,13 @@ export const BUG_EXCHANGE: ExchangeItemType[] = [
 
 export const CROWN_EXCHANGE: ExchangeItemType = {
   id: 'crown_description',
-  description: `A crown does not create beauty - it only highlights what is already inside. \n The Queen once said that every woman has her own story of light, but she does not see it every day. That is why she created this crown as a sign: stop, look at yourself more closely. In the shine of gold you see not luxury, but a reflection of your own strength, softness and path. \n The crown opens the story of beauty - a place where your steps, photos, thoughts and small victories are added up into its own legend. Beauty does not disappear, it is just waiting for you to look at it directly.`,
+  description: `A crown does not create beauty - it only highlights what is already inside.\nThe Queen once said that every woman has her own story of light, but she does not see it every day. That is why she created this crown as a sign: stop, look at yourself more closely. In the shine of gold you see not luxury, but a reflection of your own strength, softness and path.\nThe crown opens the story of beauty - a place where your steps, photos, thoughts and small victories are added up into its own legend. Beauty does not disappear, it is just waiting for you to look at it directly.`,
   completed: false,
+};
+
+export const CATEGORY_DESCRIPTIONS: Record<ArtefactIdType, string> = {
+  Pyramid: 'Phrases of strength and confidence',
+  Flower: 'Gentle phrases about beauty and mood',
+  Bug: 'Phrases of wisdom and peace',
+  Crown: 'Opens a new feature: "Beauty Story"',
 };
