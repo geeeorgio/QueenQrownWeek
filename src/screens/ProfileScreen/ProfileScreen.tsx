@@ -29,6 +29,7 @@ import {
   hp,
   requestCameraPermission,
   saveImageToApp,
+  setItemInStorage,
   wp,
 } from 'src/utils';
 
@@ -75,6 +76,7 @@ const ProfileScreen = () => {
   const handleConfirmDelete = async () => {
     await clearAppDirectory();
     await resetGameData();
+    await setItemInStorage('canGetNewTask', true);
 
     setName('');
     setNote('');

@@ -64,6 +64,7 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
           savedArt,
           savedTasks,
           savedExchange,
+          savedCanGetTask,
         ] = await Promise.all([
           getItemFromStorage<boolean>('isOnboardingCompleted'),
           getItemFromStorage<boolean>('isRegistrationCompleted'),
@@ -75,6 +76,7 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
           getItemFromStorage<{ [key in ArtefactIdType]: ExchangeItemType[] }>(
             'exchangeHistory',
           ),
+          getItemFromStorage<boolean>('canGetNewTask'),
         ]);
 
         if (savedOnboarding !== null) setOnboardingDone(savedOnboarding);
@@ -85,13 +87,20 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
         if (savedExchange) setExchange(savedExchange);
 
         if (savedTasks) {
-          const lastTask = [...savedTasks].reverse().find((t) => t.completedAt);
-          if (lastTask?.completedAt) {
+          const completed = savedTasks.filter((t) => t.completedAt);
+          const totalCompleted = completed.length;
+
+          if (totalCompleted > 0 && totalCompleted % 4 === 0) {
+            const lastTask = [...completed].reverse()[0];
             const hoursPassed =
-              (Date.now() - new Date(lastTask.completedAt).getTime()) /
+              (Date.now() - new Date(lastTask.completedAt!).getTime()) /
               (1000 * 60 * 60);
             setCanGetTask(hoursPassed >= 24);
+          } else {
+            setCanGetTask(true);
           }
+        } else if (savedCanGetTask !== null) {
+          setCanGetTask(savedCanGetTask);
         }
       } catch (e) {
         console.error('Context init error:', e);
@@ -145,6 +154,8 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
             : t,
         );
 
+        const completedCount = updatedTasks.filter((t) => t.completed).length;
+
         const types: ArtefactIdType[] = ['Pyramid', 'Flower', 'Bug'];
         const randomType = types[Math.floor(Math.random() * types.length)];
 
@@ -160,7 +171,14 @@ const GameContextProvider = ({ children }: { children: ReactNode }) => {
 
         setTasks(updatedTasks);
         setArtefacts(updatedArtefacts);
-        setCanGetTask(false);
+
+        if (completedCount > 0 && completedCount % 4 === 0) {
+          setCanGetTask(false);
+          await setItemInStorage('canGetNewTask', false);
+        } else {
+          setCanGetTask(true);
+          await setItemInStorage('canGetNewTask', true);
+        }
       } catch (error) {
         console.error('Failed to complete task:', error);
       }

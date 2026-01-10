@@ -42,17 +42,24 @@ const HomeScreen = () => {
     [tasksContextHistory],
   );
 
-  const currentDay = useMemo(() => {
-    if (!canGetNewTask && completedCount > 0) {
-      return ((completedCount - 1) % 4) + 1;
+  const currentDayDisplay = useMemo(() => {
+    if (!canGetNewTask && completedCount > 0 && completedCount % 4 === 0) {
+      return Math.floor(completedCount / 4);
     }
-    return (completedCount % 4) + 1;
+    return Math.floor(completedCount / 4) + 1;
   }, [completedCount, canGetNewTask]);
 
-  const getDayStatus = (dayNumber: number) => {
-    const isDone =
-      dayNumber < currentDay || (dayNumber === currentDay && !canGetNewTask);
-    const isCurrent = dayNumber === currentDay && canGetNewTask;
+  const getStepStatus = (stepNumber: number) => {
+    const taskIndex = (currentDayDisplay - 1) * 4 + (stepNumber - 1);
+    const task = tasksContextHistory[taskIndex];
+
+    const isDone = task?.completed || false;
+
+    const isCurrent =
+      canGetNewTask &&
+      !isDone &&
+      (stepNumber === 1 || tasksContextHistory[taskIndex - 1]?.completed);
+
     return { isDone, isCurrent };
   };
 
@@ -182,15 +189,15 @@ const HomeScreen = () => {
 
           <CustomContainer extraStyle={styles.daySection}>
             <CustomText extraStyle={styles.dayLabel}>
-              Day {currentDay}
+              Day {currentDayDisplay}
             </CustomText>
             <View style={styles.dayButtons}>
-              {[1, 2, 3, 4].map((day) => {
-                const { isDone, isCurrent } = getDayStatus(day);
+              {[1, 2, 3, 4].map((step) => {
+                const { isDone, isCurrent } = getStepStatus(step);
 
                 return (
                   <CustomContainer
-                    key={day}
+                    key={step}
                     extraStyle={[
                       styles.dayButton,
                       isDone && styles.dayButtonDone,
@@ -204,7 +211,7 @@ const HomeScreen = () => {
                       ]}
                     >
                       <CustomText extraStyle={styles.dayButtonText}>
-                        {day}
+                        {step}
                       </CustomText>
                     </View>
                   </CustomContainer>
@@ -238,7 +245,9 @@ const HomeScreen = () => {
                         style={styles.startDayButtonImage}
                       >
                         <CustomText extraStyle={styles.startDayButtonText}>
-                          Start day
+                          {completedCount > 0 && completedCount % 4 !== 0
+                            ? 'Next task'
+                            : 'Start day'}
                         </CustomText>
                       </ImageBackground>
                     </CustomButton>

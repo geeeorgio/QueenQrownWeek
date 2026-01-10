@@ -33,8 +33,12 @@ const HistoryScreen = () => {
     await handleShare();
   };
 
-  const renderItem = ({ item, index }: { item: TaskType; index: number }) => {
-    const dayNumber = (index % 4) + 1;
+  const renderItem = ({ item }: { item: TaskType }) => {
+    const globalIndex = tasksContextHistory.findIndex((t) => t.id === item.id);
+
+    const dayNumber = Math.floor(globalIndex / 4) + 1;
+
+    const taskNumberInDay = (globalIndex % 4) + 1;
 
     return (
       <CustomContainer extraStyle={styles.card}>
@@ -42,7 +46,7 @@ const HistoryScreen = () => {
           <View style={styles.cardLeftSection}>
             <View style={styles.dayTextContainer}>
               <CustomText extraStyle={styles.dayText}>
-                Day {dayNumber}
+                {`Day ${dayNumber}. Task ${taskNumberInDay}`}
               </CustomText>
               <CustomText extraStyle={styles.descriptionText}>
                 {item.description}

@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    paddingBottom: hp(100),
+    paddingBottom: hp(120),
   },
   header: {
     width: '100%',
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
   },
   dayText: {
     fontFamily: FONTS.InterSemiBold,
-    fontSize: sp(18),
+    fontSize: sp(16),
   },
   descriptionText: {
     fontFamily: FONTS.InterRegular,
