@@ -1,5 +1,5 @@
 import { useFocusEffect } from '@react-navigation/native';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import {
   Image,
   ImageBackground,
@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import ReactNativeBlobUtil from 'react-native-blob-util';
 import { launchCamera } from 'react-native-image-picker';
 
 import { styles } from './styles';
@@ -23,9 +22,15 @@ import {
   CustomText,
   ImgIcon,
 } from 'src/components';
-import { BTN_FRAME, COLORS, PATH_TO_SAVED_IMAGES } from 'src/constants';
+import { BTN_FRAME, COLORS } from 'src/constants';
 import { useGameContext } from 'src/hooks/useGameContext';
-import { clearAppDirectory, hp, saveImageToApp, wp } from 'src/utils';
+import {
+  clearAppDirectory,
+  hp,
+  requestCameraPermission,
+  saveImageToApp,
+  wp,
+} from 'src/utils';
 
 const ProfileScreen = () => {
   const {
@@ -52,11 +57,14 @@ const ProfileScreen = () => {
   const handlePickImage = async () => {
     if (isProfileActive) return;
 
+    const hasPermission = await requestCameraPermission();
+    if (!hasPermission) return;
+
     const result = await launchCamera({ mediaType: 'photo', quality: 0.5 });
 
     if (result.didCancel || !result.assets?.[0].uri) return;
 
-    const fileName = `user_avatar_${Date.now()}.jpg`;
+    const fileName = `photo_${Date.now()}.jpg`;
     const savedPath = await saveImageToApp(result.assets[0].uri, fileName);
 
     if (savedPath) {
@@ -103,34 +111,6 @@ const ProfileScreen = () => {
       };
     }, [setIsContextRegistrationCompleted, userContextData.name]),
   );
-
-  //
-  useEffect(() => {
-    const checkDir = async () => {
-      const dir = `${ReactNativeBlobUtil.fs.dirs.DocumentDir}/${PATH_TO_SAVED_IMAGES}`;
-      console.log('dir', dir);
-
-      try {
-        const exists = await ReactNativeBlobUtil.fs.exists(dir);
-        console.log('exists dir', exists);
-
-        if (!exists) {
-          console.log('Folder does not exist.');
-          return;
-        }
-
-        const files = await ReactNativeBlobUtil.fs.ls(dir);
-
-        console.log('What is inside dir:', files);
-
-        return files;
-      } catch (e) {
-        console.log('Something went wrong:', e);
-      }
-    };
-    checkDir();
-  }, [userContextData]);
-  //
 
   return (
     <Pressable style={{ flex: 1 }} onPress={Keyboard.dismiss}>

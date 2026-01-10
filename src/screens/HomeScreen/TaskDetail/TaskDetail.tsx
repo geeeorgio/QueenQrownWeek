@@ -23,7 +23,7 @@ import {
 import { BTN_FRAME, COLORS, QUEEN } from 'src/constants';
 import { useGameContext } from 'src/hooks/useGameContext';
 import type { TaskType } from 'src/types';
-import { hp, saveImageToApp, wp } from 'src/utils';
+import { hp, requestCameraPermission, saveImageToApp, wp } from 'src/utils';
 
 type TaskDetailProps = {
   task: TaskType;
@@ -41,11 +41,14 @@ const TaskDetail = ({ task, onClose }: TaskDetailProps) => {
     tasksContextHistory.findIndex((t) => t.id === task.id) + 1 || 1;
 
   const handlePickImage = async () => {
+    const hasPermission = await requestCameraPermission();
+    if (!hasPermission) return;
+
     const result = await launchCamera({ mediaType: 'photo', quality: 0.5 });
 
     if (result.didCancel || !result.assets?.[0].uri) return;
 
-    const fileName = `task_${task.id}_${Date.now()}.jpg`;
+    const fileName = `photo_${Date.now()}.jpg`;
     const savedPath = await saveImageToApp(result.assets[0].uri, fileName);
 
     if (savedPath) {

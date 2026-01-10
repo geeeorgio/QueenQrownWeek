@@ -21,7 +21,7 @@ import {
 } from 'src/components';
 import { BTN_FRAME, COLORS, LOGO } from 'src/constants';
 import { useGameContext } from 'src/hooks/useGameContext';
-import { hp, saveImageToApp, wp } from 'src/utils';
+import { hp, requestCameraPermission, saveImageToApp, wp } from 'src/utils';
 
 const RegistrationScreen = () => {
   const { setUserData, setIsContextRegistrationCompleted } = useGameContext();
@@ -39,15 +39,35 @@ const RegistrationScreen = () => {
   }, [name, note, imageUri]);
 
   const handlePickImage = async () => {
-    const result = await launchCamera({ mediaType: 'photo', quality: 0.5 });
+    const hasPermission = await requestCameraPermission();
 
-    if (result.didCancel || !result.assets?.[0].uri) return;
+    if (!hasPermission) return;
 
-    const fileName = `user_avatar_${Date.now()}.jpg`;
-    const savedPath = await saveImageToApp(result.assets[0].uri, fileName);
+    try {
+      const result = await launchCamera({
+        mediaType: 'photo',
+        quality: 0.5,
+        saveToPhotos: false,
+      });
 
-    if (savedPath) {
-      setImageUri(savedPath);
+      if (result.didCancel) {
+        return;
+      }
+
+      if (result.errorCode) {
+        console.error('Camera Error: ', result.errorMessage);
+        return;
+      }
+
+      if (result.assets?.[0].uri) {
+        const uri = result.assets[0].uri;
+
+        const savedPath = await saveImageToApp(uri, `avatar_${Date.now()}.jpg`);
+
+        setImageUri(savedPath);
+      }
+    } catch (err) {
+      console.error('Error launching camera:', err);
     }
   };
 
