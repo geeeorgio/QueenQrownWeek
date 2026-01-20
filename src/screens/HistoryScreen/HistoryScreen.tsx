@@ -95,7 +95,7 @@ const HistoryScreen = () => {
   };
 
   const EmptyState = () => (
-    <CustomContainer variant="yellow" extraStyle={styles.emptyCard}>
+    <CustomContainer variant="default" extraStyle={styles.emptyCard}>
       <View style={styles.emptyCardContent}>
         <View style={styles.emptyImageContainer}>
           <Image source={QUEEN} style={styles.emptyImage} resizeMode="cover" />

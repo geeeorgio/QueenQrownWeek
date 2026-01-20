@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
   },
   onboarding: {
     padding: wp(20),
-    backgroundColor: COLORS.brown,
+    backgroundColor: COLORS.newRed,
     borderTopLeftRadius: wp(22),
     borderTopRightRadius: wp(22),
     borderTopColor: COLORS.yellowBorder,

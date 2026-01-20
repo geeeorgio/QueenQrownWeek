@@ -98,7 +98,7 @@ const TaskDetail = ({ task, onClose }: TaskDetailProps) => {
           <CustomContainer extraStyle={styles.scrollContent}>
             <View style={styles.header}>
               <CustomContainer
-                variant="yellow"
+                variant="default"
                 extraStyle={styles.taskNumberContainer}
               >
                 <View style={styles.taskNumberContent}>
@@ -113,7 +113,7 @@ const TaskDetail = ({ task, onClose }: TaskDetailProps) => {
             </View>
 
             <CustomContainer
-              variant="yellow"
+              variant="default"
               extraStyle={styles.taskDescriptionCard}
             >
               <View style={styles.taskDescriptionContent}>
@@ -158,7 +158,7 @@ const TaskDetail = ({ task, onClose }: TaskDetailProps) => {
                       <ImgIcon
                         width={wp(44)}
                         height={hp(44)}
-                        color={COLORS.yellowMain}
+                        color={COLORS.newText}
                       />
                       <CustomText extraStyle={styles.addPhotoText}>
                         Your photo

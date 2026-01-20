@@ -64,7 +64,7 @@ export const styles = StyleSheet.create({
   shareButtonText: {
     fontSize: sp(14),
     fontFamily: FONTS.MontserratBold,
-    color: COLORS.brown,
+    color: COLORS.newText,
     textAlign: 'center',
   },
   cardRightSection: {
@@ -101,6 +101,10 @@ export const styles = StyleSheet.create({
     height: hp(220),
     padding: 0,
     overflow: 'hidden',
+    backgroundColor: COLORS.newRed,
+    borderRadius: wp(16),
+    borderWidth: wp(1),
+    borderColor: COLORS.containerBorder,
   },
   emptyCardContent: {
     width: '100%',
@@ -126,7 +130,7 @@ export const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: sp(14),
-    color: COLORS.brown,
+    color: COLORS.newText,
     textAlign: 'left',
   },
 });

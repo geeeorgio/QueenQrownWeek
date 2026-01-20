@@ -21,6 +21,11 @@ export const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    overflow: 'hidden',
+    backgroundColor: COLORS.containerBorder,
+    borderRadius: wp(16),
+    borderWidth: wp(1),
+    borderColor: COLORS.containerBorder,
   },
   queenImage: {
     width: '100%',
@@ -66,7 +71,7 @@ export const styles = StyleSheet.create({
   buttonText: {
     fontSize: sp(16),
     fontFamily: FONTS.MontserratBold,
-    color: COLORS.brown,
+    color: COLORS.newText,
     textAlign: 'center',
   },
 });

@@ -53,8 +53,8 @@ export const styles = StyleSheet.create({
     width: wp(64),
     height: wp(64),
     borderRadius: wp(12),
-    backgroundColor: COLORS.brown,
-    borderColor: COLORS.yellowBorder,
+    backgroundColor: COLORS.redTabBar,
+    borderColor: COLORS.white,
     borderWidth: wp(1),
   },
   artefactsSection: {
@@ -113,20 +113,19 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: wp(1),
-    borderColor: COLORS.yellowBorder,
+    borderColor: COLORS.greyBorder,
     borderRadius: wp(12),
-    backgroundColor: COLORS.yellowContainer,
+    // backgroundColor: COLORS.newRed,
   },
   dayButtonActive: {
-    backgroundColor: COLORS.yellowMain,
-    borderColor: COLORS.yellowMain,
+    backgroundColor: COLORS.newRed,
   },
   dayButtonDone: {
-    backgroundColor: COLORS.greenBackground,
-    borderColor: COLORS.yellowMain,
+    backgroundColor: COLORS.redTabBar,
+    // borderColor: COLORS.yellowMain,
   },
   dayTextContainerDone: {
-    backgroundColor: COLORS.greenCircle,
+    backgroundColor: COLORS.greyBorder,
   },
   dayTextContainer: {
     width: wp(32),
@@ -135,7 +134,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: wp(16),
     padding: 0,
-    backgroundColor: COLORS.brown,
+    backgroundColor: COLORS.greyBorder,
   },
   dayButtonText: {
     fontFamily: FONTS.InterSemiBold,
@@ -146,6 +145,8 @@ export const styles = StyleSheet.create({
     width: '100%',
     minHeight: hp(200),
     maxHeight: hp(220),
+    backgroundColor: COLORS.newRed,
+    borderRadius: wp(16),
   },
   taskCardContent: {
     width: '100%',
@@ -174,7 +175,7 @@ export const styles = StyleSheet.create({
   },
   taskCardText: {
     fontSize: sp(14),
-    color: COLORS.brown,
+    color: COLORS.newText,
     textAlign: 'left',
   },
   startDayButton: {
@@ -191,7 +192,7 @@ export const styles = StyleSheet.create({
   startDayButtonText: {
     fontSize: sp(14),
     fontFamily: FONTS.MontserratBold,
-    color: COLORS.brown,
+    color: COLORS.newText,
     textAlign: 'center',
   },
   cooldownContainer: {

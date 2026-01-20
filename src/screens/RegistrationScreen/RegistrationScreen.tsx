@@ -137,7 +137,7 @@ const RegistrationScreen = () => {
                   <ImgIcon
                     width={wp(44)}
                     height={hp(44)}
-                    color={COLORS.yellowMain}
+                    color={COLORS.newText}
                   />
                   <CustomText extraStyle={styles.addPhotoText}>
                     Your photo

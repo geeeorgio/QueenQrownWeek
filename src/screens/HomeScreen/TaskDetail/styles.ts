@@ -31,7 +31,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: wp(12),
-    borderColor: COLORS.yellowMain,
+    borderColor: COLORS.containerBorder,
+    borderWidth: wp(1),
+    backgroundColor: COLORS.newRed,
   },
   taskNumberContent: {
     width: wp(30),
@@ -39,7 +41,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: wp(15),
-    backgroundColor: COLORS.brown,
+    backgroundColor: COLORS.black,
   },
   taskNumberText: {
     fontFamily: FONTS.InterSemiBold,
@@ -55,6 +57,9 @@ export const styles = StyleSheet.create({
     borderRadius: wp(24),
     overflow: 'hidden',
     padding: 0,
+    backgroundColor: COLORS.newRed,
+    borderWidth: wp(1),
+    borderColor: COLORS.containerBorder,
   },
   taskDescriptionContent: {
     width: '100%',
@@ -79,7 +84,7 @@ export const styles = StyleSheet.create({
   taskDescriptionText: {
     fontFamily: FONTS.InterSemiBold,
     fontSize: sp(12),
-    color: COLORS.brown,
+    color: COLORS.newText,
   },
   aboutTaskSection: {
     width: '100%',
@@ -138,7 +143,7 @@ export const styles = StyleSheet.create({
   completeButtonText: {
     fontSize: sp(16),
     fontFamily: FONTS.MontserratBold,
-    color: COLORS.brown,
+    color: COLORS.newText,
   },
   photoContainer: {
     width: '100%',

@@ -54,6 +54,10 @@ export const styles = StyleSheet.create({
     height: hp(160),
     padding: 0,
     overflow: 'hidden',
+    backgroundColor: COLORS.newRed,
+    borderRadius: wp(16),
+    borderWidth: wp(1),
+    borderColor: COLORS.containerBorder,
   },
   crownPhraseCard: {
     height: hp(250),
@@ -79,7 +83,7 @@ export const styles = StyleSheet.create({
   },
   phraseText: {
     fontSize: sp(14),
-    color: COLORS.brown,
+    color: COLORS.newText,
     textAlign: 'left',
   },
   crownPhraseText: {
@@ -102,7 +106,7 @@ export const styles = StyleSheet.create({
   buttonText: {
     fontSize: sp(16),
     fontFamily: FONTS.MontserratBold,
-    color: COLORS.brown,
+    color: COLORS.newText,
     textAlign: 'center',
   },
 });

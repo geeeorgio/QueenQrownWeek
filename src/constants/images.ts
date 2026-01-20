@@ -1,10 +1,10 @@
 import type { ArtefactType } from 'src/types';
 
-export const MAIN_BG_IMAGE = require('../assets/images/bckgd/bg.png');
+export const MAIN_BG_IMAGE = require('../assets/images/bckgd/redBg.jpg');
 
-export const BTN_FRAME = require('../assets/images/bckgd/btn_frame.png');
+export const BTN_FRAME = require('../assets/images/bckgd/redFrame.png');
 
-export const QUEEN = require('../assets/images/items/woman.png');
+export const QUEEN = require('../assets/images/items/redCleo.png');
 
 export const ITEMS = {
   book: require('../assets/images/items/book.png'),
@@ -16,7 +16,7 @@ export const ITEMS = {
   taskCard: require('../assets/images/items/task_card.png'),
 };
 
-export const LOGO = require('../assets/images/bckgd/logo.png');
+export const LOGO = require('../assets/images/bckgd/icon.jpg');
 
 export const ARTEFACTS: ArtefactType[] = [
   { id: 'Pyramid', image: ITEMS.pyramid },

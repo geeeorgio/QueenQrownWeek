@@ -10,6 +10,9 @@ export const COLORS = {
   red: '#FF0000',
   blue: '#007aff',
   historyBrown: '#4b391a',
+  newRed: 'rgba(238, 107, 110, 0.5)',
+  redTabBar: '#800000',
+  newText: '#FFF5F5',
 
   containerBorder: 'rgba(255, 255, 255, 0.1)',
   yellowBorder: 'rgba(249, 198, 0, 0.5)',

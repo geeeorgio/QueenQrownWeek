@@ -79,7 +79,7 @@ android {
 
     namespace "com.queenqrownweek"
     defaultConfig {
-        applicationId "com.queenqrownweek"
+        applicationId "com.crownofnefertiti"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -11,7 +11,7 @@ import type { MainStackParamList } from 'src/types';
 
 const CustomTabBar = (props: BottomTabBarProps) => {
   return (
-    <CustomContainer extraStyle={styles.container} variant="onboarding">
+    <CustomContainer extraStyle={styles.container} variant="default">
       {props.state.routes.map((route, idx) => {
         const routeName = route.name as keyof MainStackParamList;
         const Icon = TAB_BAR_ICONS[routeName];
@@ -51,7 +51,7 @@ const CustomTabBar = (props: BottomTabBarProps) => {
             onLongPress={onLongPress}
             style={[styles.button, isFocused && styles.buttonFocused]}
           >
-            <Icon color={COLORS.yellowMain} style={styles.icon} />
+            <Icon color={COLORS.newText} style={styles.icon} />
           </PlatformPressable>
         );
       })}

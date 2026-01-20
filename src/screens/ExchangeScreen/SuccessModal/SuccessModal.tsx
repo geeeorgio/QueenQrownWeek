@@ -59,7 +59,7 @@ const SuccessModal = ({
           )}
 
           <CustomContainer
-            variant="yellow"
+            variant="default"
             extraStyle={[styles.phraseCard, isCrown && styles.crownPhraseCard]}
           >
             {isCrown ? (

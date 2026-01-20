@@ -58,8 +58,11 @@ const ExchangeList = () => {
 
     return (
       <CustomContainer
-        variant={isCrown ? 'yellow' : 'brown'}
-        extraStyle={styles.itemContainer}
+        variant="default"
+        extraStyle={[
+          styles.itemContainer,
+          isCrown ? styles.crownItemContainer : styles.regularItemContainer,
+        ]}
       >
         <View style={styles.itemContent}>
           <View style={styles.itemHeader}>

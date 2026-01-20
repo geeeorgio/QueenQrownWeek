@@ -17,14 +17,14 @@ export const styles = StyleSheet.create({
     paddingHorizontal: wp(12),
     paddingVertical: hp(6),
     borderRadius: wp(12),
-    backgroundColor: COLORS.brown,
-    borderColor: COLORS.yellowBorder,
+    backgroundColor: COLORS.newRed,
+    borderColor: COLORS.containerBorder,
     borderWidth: wp(1),
     marginRight: wp(16),
   },
   closeButtonText: {
     fontFamily: FONTS.MontserratBold,
-    color: COLORS.yellowMain,
+    color: COLORS.newText,
     fontSize: sp(16),
     textTransform: 'uppercase',
   },
@@ -44,6 +44,10 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 0,
     overflow: 'hidden',
+    backgroundColor: COLORS.newRed,
+    borderRadius: wp(16),
+    borderWidth: wp(1),
+    borderColor: COLORS.containerBorder,
   },
   queenCardContainer: {
     alignItems: 'flex-start',
@@ -62,7 +66,7 @@ export const styles = StyleSheet.create({
     height: wp(100),
     overflow: 'hidden',
     borderWidth: wp(1),
-    borderColor: COLORS.yellowBorder,
+    borderColor: COLORS.containerBorder,
     borderRadius: wp(25),
   },
   textSection: {
@@ -71,7 +75,7 @@ export const styles = StyleSheet.create({
   },
   descriptionText: {
     fontSize: sp(11),
-    color: COLORS.brown,
+    color: COLORS.newText,
   },
   shareButton: {
     width: wp(160),
@@ -87,6 +91,6 @@ export const styles = StyleSheet.create({
   shareButtonText: {
     fontSize: sp(16),
     fontFamily: FONTS.MontserratBold,
-    color: COLORS.brown,
+    color: COLORS.newText,
   },
 });

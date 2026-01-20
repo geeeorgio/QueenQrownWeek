@@ -40,7 +40,7 @@ const GameInfo = ({ onClose }: GameInfoProps) => {
 
       <View style={styles.content}>
         <CustomContainer
-          variant="yellow"
+          variant="default"
           extraStyle={[styles.cardContainer, styles.queenCardContainer]}
         >
           <View style={styles.imageSection}>
@@ -48,14 +48,14 @@ const GameInfo = ({ onClose }: GameInfoProps) => {
           </View>
           <View style={styles.textSection}>
             <CustomText extraStyle={styles.descriptionText}>
-              Queen Qrown Week is a weekly app with daily beauty and mood
+              The Crown of Nefertiti is a weekly app with daily beauty and mood
               challenges. Complete 4 challenges each day, add photos and save
               your story.
             </CustomText>
           </View>
         </CustomContainer>
 
-        <CustomContainer variant="yellow" extraStyle={styles.cardContainer}>
+        <CustomContainer variant="default" extraStyle={styles.cardContainer}>
           <View style={styles.logoImageSection}>
             <Image source={LOGO} resizeMode="contain" style={styles.image} />
           </View>

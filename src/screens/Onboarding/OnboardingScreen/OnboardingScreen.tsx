@@ -18,7 +18,7 @@ const OnboardingScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.womanWrapper}>
-        <CustomContainer variant="yellow" extraStyle={styles.queenContainer}>
+        <CustomContainer variant="default" extraStyle={styles.queenContainer}>
           <Image
             source={QUEEN}
             resizeMode="contain"
@@ -28,8 +28,8 @@ const OnboardingScreen = () => {
       </View>
       <CustomContainer variant="onboarding" extraStyle={styles.bottomContainer}>
         <CustomText extraStyle={styles.title}>
-          Welcome to Queen Qrown Week. Here you will spend your week of beauty
-          and strength with the Queen.
+          Welcome to the Crown of Nefertiti. Here you will spend a week of
+          beauty and strength with the Queen.
         </CustomText>
         <CustomButton onPress={handleContinue} extraStyle={styles.button}>
           <ImageBackground

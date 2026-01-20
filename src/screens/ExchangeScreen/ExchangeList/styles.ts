@@ -18,6 +18,15 @@ export const styles = StyleSheet.create({
     width: '100%',
     padding: wp(16),
     minHeight: hp(180),
+    borderRadius: wp(16),
+    borderWidth: wp(1),
+    borderColor: COLORS.containerBorder,
+  },
+  regularItemContainer: {
+    backgroundColor: COLORS.newRed,
+  },
+  crownItemContainer: {
+    backgroundColor: COLORS.redTabBar,
   },
   itemContent: {
     width: '100%',
@@ -69,7 +78,7 @@ export const styles = StyleSheet.create({
   exchangeButtonText: {
     fontSize: sp(14),
     fontFamily: FONTS.MontserratBold,
-    color: COLORS.brown,
+    color: COLORS.newText,
     textAlign: 'center',
   },
   disabledButton: {

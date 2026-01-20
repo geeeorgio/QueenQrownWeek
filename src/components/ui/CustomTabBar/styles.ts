@@ -17,6 +17,10 @@ export const styles = StyleSheet.create({
     paddingBottom: hp(80),
     paddingHorizontal: wp(30),
     gap: wp(16),
+    backgroundColor: COLORS.redTabBar,
+    borderRadius: wp(16),
+    borderWidth: wp(1),
+    borderColor: COLORS.containerBorder,
   },
   button: {
     flex: 1,
@@ -25,13 +29,13 @@ export const styles = StyleSheet.create({
     padding: wp(20),
     borderRadius: wp(12),
     borderWidth: wp(1),
-    borderColor: COLORS.yellowBorder,
-    opacity: 0.25,
+    borderColor: COLORS.newText,
+    opacity: 0.33,
   },
   buttonFocused: {
     flex: 1,
     borderWidth: wp(1),
-    borderColor: COLORS.yellowBorder,
+    borderColor: COLORS.newText,
     opacity: 1,
   },
   icon: {

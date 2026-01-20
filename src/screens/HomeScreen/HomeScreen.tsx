@@ -159,11 +159,7 @@ const HomeScreen = () => {
               onPress={handleInfoPress}
               extraStyle={styles.infoButton}
             >
-              <InfoIcon
-                width={wp(24)}
-                height={wp(24)}
-                color={COLORS.yellowMain}
-              />
+              <InfoIcon width={wp(24)} height={wp(24)} color={COLORS.newText} />
             </CustomButton>
           </View>
 
@@ -219,7 +215,7 @@ const HomeScreen = () => {
               })}
             </View>
 
-            <CustomContainer variant="yellow" extraStyle={styles.taskCard}>
+            <CustomContainer variant="default" extraStyle={styles.taskCard}>
               <View style={styles.taskCardContent}>
                 <View style={styles.queenImageContainer}>
                   <Image

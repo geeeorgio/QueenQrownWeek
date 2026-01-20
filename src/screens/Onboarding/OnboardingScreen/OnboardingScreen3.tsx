@@ -17,7 +17,7 @@ const OnboardingScreen3 = () => {
   return (
     <View style={styles.container}>
       <View style={styles.womanWrapper}>
-        <CustomContainer variant="yellow" extraStyle={styles.queenContainer}>
+        <CustomContainer variant="default" extraStyle={styles.queenContainer}>
           <Image
             source={ITEMS.lock}
             resizeMode="contain"

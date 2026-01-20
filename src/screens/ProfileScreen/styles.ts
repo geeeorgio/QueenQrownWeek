@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
   buttonText: {
     fontSize: sp(16),
     fontFamily: FONTS.MontserratBold,
-    color: COLORS.brown,
+    color: COLORS.newText,
     textAlign: 'center',
   },
 });
