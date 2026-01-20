@@ -28,8 +28,8 @@ const OnboardingScreen = () => {
       </View>
       <CustomContainer variant="onboarding" extraStyle={styles.bottomContainer}>
         <CustomText extraStyle={styles.title}>
-          Welcome to the Crown of Nefertiti. Here you will spend a week of
-          beauty and strength with the Queen.
+          Welcome to the Nile Queen Sanctuary. Here you will spend a week of
+          beauty and strength with the Queen of the Nile.
         </CustomText>
         <CustomButton onPress={handleContinue} extraStyle={styles.button}>
           <ImageBackground

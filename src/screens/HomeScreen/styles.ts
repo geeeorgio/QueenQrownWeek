@@ -53,7 +53,7 @@ export const styles = StyleSheet.create({
     width: wp(64),
     height: wp(64),
     borderRadius: wp(12),
-    backgroundColor: COLORS.redTabBar,
+    backgroundColor: COLORS.greenTabBar,
     borderColor: COLORS.white,
     borderWidth: wp(1),
   },
@@ -118,10 +118,10 @@ export const styles = StyleSheet.create({
     // backgroundColor: COLORS.newRed,
   },
   dayButtonActive: {
-    backgroundColor: COLORS.newRed,
+    backgroundColor: COLORS.newGreen,
   },
   dayButtonDone: {
-    backgroundColor: COLORS.redTabBar,
+    backgroundColor: COLORS.greenTabBar,
     // borderColor: COLORS.yellowMain,
   },
   dayTextContainerDone: {
@@ -134,7 +134,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: wp(16),
     padding: 0,
-    backgroundColor: COLORS.greyBorder,
+    backgroundColor: COLORS.newGreen,
   },
   dayButtonText: {
     fontFamily: FONTS.InterSemiBold,
@@ -145,7 +145,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     minHeight: hp(200),
     maxHeight: hp(220),
-    backgroundColor: COLORS.newRed,
+    backgroundColor: COLORS.newGreen,
     borderRadius: wp(16),
   },
   taskCardContent: {

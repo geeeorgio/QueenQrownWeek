@@ -23,10 +23,10 @@ export const styles = StyleSheet.create({
     borderColor: COLORS.containerBorder,
   },
   regularItemContainer: {
-    backgroundColor: COLORS.newRed,
+    backgroundColor: COLORS.newGreen,
   },
   crownItemContainer: {
-    backgroundColor: COLORS.redTabBar,
+    backgroundColor: COLORS.greenTabBar,
   },
   itemContent: {
     width: '100%',

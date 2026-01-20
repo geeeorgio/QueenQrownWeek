@@ -48,9 +48,9 @@ const GameInfo = ({ onClose }: GameInfoProps) => {
           </View>
           <View style={styles.textSection}>
             <CustomText extraStyle={styles.descriptionText}>
-              The Crown of Nefertiti is a weekly app with daily beauty and mood
-              challenges. Complete 4 challenges each day, add photos and save
-              your story.
+              The Nile Queen Sanctuary is a weekly app with daily beauty and
+              mood challenges. Complete 4 challenges each day, add photos and
+              save your story.
             </CustomText>
           </View>
         </CustomContainer>

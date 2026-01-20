@@ -34,14 +34,14 @@ export const styles = StyleSheet.create({
   },
   onboarding: {
     padding: wp(20),
-    backgroundColor: COLORS.newRed,
+    backgroundColor: COLORS.newGreen,
     borderTopLeftRadius: wp(22),
     borderTopRightRadius: wp(22),
-    borderTopColor: COLORS.yellowBorder,
+    borderTopColor: COLORS.containerBorder,
     borderTopWidth: wp(1.55),
-    borderLeftColor: COLORS.yellowBorder,
+    borderLeftColor: COLORS.containerBorder,
     borderLeftWidth: wp(0.75),
-    borderRightColor: COLORS.yellowBorder,
+    borderRightColor: COLORS.containerBorder,
     borderRightWidth: wp(0.75),
   },
 });

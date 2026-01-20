@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
     borderRadius: wp(12),
     borderColor: COLORS.containerBorder,
     borderWidth: wp(1),
-    backgroundColor: COLORS.newRed,
+    backgroundColor: COLORS.newGreen,
   },
   taskNumberContent: {
     width: wp(30),
@@ -57,7 +57,7 @@ export const styles = StyleSheet.create({
     borderRadius: wp(24),
     overflow: 'hidden',
     padding: 0,
-    backgroundColor: COLORS.newRed,
+    backgroundColor: COLORS.newGreen,
     borderWidth: wp(1),
     borderColor: COLORS.containerBorder,
   },

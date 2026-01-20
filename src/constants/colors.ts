@@ -13,6 +13,8 @@ export const COLORS = {
   newRed: 'rgba(238, 107, 110, 0.5)',
   redTabBar: '#800000',
   newText: '#FFF5F5',
+  newGreen: 'rgba(167, 243, 208, 0.3)',
+  greenTabBar: '#1B3921',
 
   containerBorder: 'rgba(255, 255, 255, 0.1)',
   yellowBorder: 'rgba(249, 198, 0, 0.5)',

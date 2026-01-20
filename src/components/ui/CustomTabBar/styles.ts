@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     paddingBottom: hp(80),
     paddingHorizontal: wp(30),
     gap: wp(16),
-    backgroundColor: COLORS.redTabBar,
+    backgroundColor: COLORS.greenTabBar,
     borderRadius: wp(16),
     borderWidth: wp(1),
     borderColor: COLORS.containerBorder,
