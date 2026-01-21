@@ -101,7 +101,7 @@ export const styles = StyleSheet.create({
     height: hp(220),
     padding: 0,
     overflow: 'hidden',
-    backgroundColor: COLORS.newRed,
+    backgroundColor: COLORS.newGreen,
     borderRadius: wp(16),
     borderWidth: wp(1),
     borderColor: COLORS.containerBorder,
